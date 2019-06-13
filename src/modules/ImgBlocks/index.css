@@ -1,0 +1,7 @@
+#img-block img{
+    width: 100%;
+}
+
+#img-block .block-padding{
+    padding: 2px;
+}

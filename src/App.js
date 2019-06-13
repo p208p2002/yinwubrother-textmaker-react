@@ -1,15 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ImgBlocks from './modules/ImgBlocks/index.jsx'
 
-function App() {
-  return (
-    <div className="App">
-      <div className="container">
-        鸚鵡兄弟
+class App extends React.Component {
+  render() {
+    return (
+      <div id="App">
+        <h1 className="text-center">鸚鵡兄弟圖文產生器</h1>
+        <hr/>
+        <div className="container">
+          <ImgBlocks/>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
