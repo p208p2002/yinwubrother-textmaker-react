@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <div id="App">
-        <h1 className="text-center">鸚鵡兄弟圖文產生器</h1>
+        <h1 className="text-center">鸚鵡兄弟文字圖產生器</h1>
         <hr/>
         <div className="container">
           <ImgBlocks/>
