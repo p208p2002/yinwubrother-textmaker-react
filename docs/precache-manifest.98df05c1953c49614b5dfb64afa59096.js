@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4c0067780df4356a1edc6ae94abc4c0c",
+    "revision": "040b500a194ca81abb26dc62959958aa",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/index.html"
   },
   {
