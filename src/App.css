@@ -1,3 +1,6 @@
+body{
+  font-family: 'Noto Sans TC', sans-serif;
+}
 @media only screen and (max-width: 768px){
 #App h1{
     font-size: 24px;
