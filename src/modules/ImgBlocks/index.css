@@ -1,4 +1,8 @@
-#img-block img{
+#img-block .img{
+    height: 90px;
+    border: 1px #D2D2D2 solid;
+    border-radius: 10px;
+    margin: 2px 2px 2px 2px;
     width: 100%;
 }
 

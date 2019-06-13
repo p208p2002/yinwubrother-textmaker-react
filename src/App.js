@@ -11,6 +11,13 @@ class App extends React.Component {
         <div className="container">
           <ImgBlocks/>
         </div>
+        <hr/>
+        <div className="text-center">
+          2019
+          <br/>
+          圖片皆來自Google
+        </div>
+        <br/>
       </div>
     );
   }
