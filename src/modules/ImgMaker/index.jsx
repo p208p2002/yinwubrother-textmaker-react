@@ -137,7 +137,8 @@ class Index extends Component {
                             className="btn btn-secondary"
                             onClick={() => {
                                 this.setState({
-                                    imgPath: this.state.imgPathOri
+                                    imgPath: this.state.imgPathOri,
+                                    textInput:''
                                 })
                             }}>重做</button>
                         <a
