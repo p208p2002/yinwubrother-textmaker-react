@@ -4,4 +4,4 @@
 開發一個reactJS版本掛在git page底下供大家使用
 > 原作者GitHub https://github.com/r3850355/yinwubrother-textmaker
 
-## 開發中，敬請期待
+核心功能已經完成...剩下慢慢優化
