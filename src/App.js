@@ -13,7 +13,7 @@ class App extends React.Component {
         </div>
         <hr/>
         <div className="text-center">
-          2019
+          <a href="https://github.com/p208p2002/yinwubrother-textmaker-react" target="_blank">GitHub</a>
           <br/>
           圖片皆來自Google
         </div>
