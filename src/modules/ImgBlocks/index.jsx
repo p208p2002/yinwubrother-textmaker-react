@@ -15,6 +15,7 @@ class View extends Component {
     }
 
     imgOnClick(e,imgpath){
+        window.scrollTo(0, 0);
         console.log(imgpath)
         // let {showMaker} = this.state
         this.setState({

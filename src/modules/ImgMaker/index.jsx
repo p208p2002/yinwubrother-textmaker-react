@@ -9,9 +9,9 @@ class Index extends Component {
             fontSize: 20,
             selectImgW: 0,
             selectImgH: 0,
-            imgPath:props.imgPath,
-            imgPathOri:props.imgPath,
-            textInput:'',
+            imgPath: props.imgPath,
+            imgPathOri: props.imgPath,
+            textInput: '',
         }
         this.setFontSize = this.setFontSize.bind(this)
         this.onImgLoad = this.onImgLoad.bind(this);
@@ -76,26 +76,26 @@ class Index extends Component {
         }
 
         ctx.fillText(addtext, text_w, text_h); //選擇位置 && 上字
-        console.log(canvas.toDataURL())
+        // console.log(canvas.toDataURL())
         // document.getElementById("DL").href=dl_link;
         this.setState({
-            imgPath:canvas.toDataURL()
+            imgPath: canvas.toDataURL()
         })
         canvas.width = 0
         canvas.height = 0
     }
 
-    UNSAFE_componentWillReceiveProps(nextProps){
-        console.log('recv',nextProps)
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        console.log('recv', nextProps)
         this.setState({
-            imgPath:nextProps.imgPath,
-            imgPathOri:nextProps.imgPath
+            imgPath: nextProps.imgPath,
+            imgPathOri: nextProps.imgPath
         })
 
     }
 
     handleChange(event) {
-        this.setState({textInput: event.target.value});
+        this.setState({ textInput: event.target.value });
     }
 
     render() {
@@ -103,44 +103,45 @@ class Index extends Component {
         console.log(selectImgH, selectImgW)
         return (
             <div key={JSON.stringify(this.props)}>
-                <img
-                    onLoad={this.onImgLoad}
-                    src={imgPath}
-                    key={JSON.stringify(this.state) + JSON.stringify(this.props)}
-                    alt='Select IMG'
-                />
                 <canvas
                     id="output"
                     // key={JSON.stringify(this.state)+ JSON.stringify(this.props)}
                     width="0" height="0"
                 />
                 {imgPath === '' ? '' :
-                    <div id="img-maker">
-                        <h1>img maker</h1>
-                        {/* <img src={imgPath} alt="" srcset="" /> */}
-                        <input type="text"
+                    <div id="img-maker" className="text-center">
+                        <img
+                            onLoad={this.onImgLoad}
+                            src={imgPath}
+                            key={JSON.stringify(this.state) + JSON.stringify(this.props)}
+                            alt='Select IMG'
+                        />
+                        <br/>
+
+                        <input
+                            type="text"
                             value={this.state.textInput}
                             onChange={this.handleChange}
                         />
                         <button
-                            className="btn"
+                            className="btn btn-info"
                             onClick={(e) => {
-                             this.setState({
-                                imgPath:this.state.imgPathOri
-                            })
-                            setTimeout(()=>{
-                                this.makeText(e, textInput)
-                            },100)
-                        }}>上字</button>
+                                this.setState({
+                                    imgPath: this.state.imgPathOri
+                                })
+                                setTimeout(() => {
+                                    this.makeText(e, textInput)
+                                }, 100)
+                            }}>上字</button>
                         <button
-                            className="btn"
-                            onClick={()=>{
-                            this.setState({
-                                imgPath:this.state.imgPathOri
-                            })
-                        }}>重做</button>
+                            className="btn btn-secondary"
+                            onClick={() => {
+                                this.setState({
+                                    imgPath: this.state.imgPathOri
+                                })
+                            }}>重做</button>
                         <a
-                            className="btn"
+                            className="btn btn-success"
                             href={imgPath}
                             download
                         >
@@ -149,7 +150,9 @@ class Index extends Component {
                         {/* <button onClick={(e) => this.setFontSize(e, fontSize + 2)}>放大</button> */}
                         {/* <button onClick={(e) => this.setFontSize(e, fontSize - 2)}>縮小</button> */}
                     </div>
+
                 }
+                <br/>
             </div>
         );
     }
