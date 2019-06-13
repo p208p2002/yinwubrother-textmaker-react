@@ -1,7 +1,7 @@
 {
   "name": "yinwubrother-textmaker-react",
   "version": "0.1.0",
-  "homepage":"https://github.com/p208p2002/yinwubrother-textmaker-react",
+  "homepage":"https://p208p2002.github.io/yinwubrother-textmaker-react",
   "private": true,
   "dependencies": {
     "@babel/core": "7.4.3",
@@ -62,7 +62,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "set PUBLIC_URL=https://github.com/p208p2002/yinwubrother-textmaker-react&& node scripts/build.js",
+    "build": "set PUBLIC_URL=https://p208p2002.github.io/yinwubrother-textmaker-react&& node scripts/build.js",
     "release": "npm run build&&git add .&&git commit -m'release'&&git push",
     "test": "node scripts/test.js"
   },
