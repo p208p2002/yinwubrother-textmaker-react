@@ -17,8 +17,6 @@ class App extends React.Component {
             client='ca-pub-3857728160074264'
             slot='5604826184'
             responsive="true"
-            format="auto"
-            style={{ display: 'block' }}
           />
           <br/>
           <DisqusBlock/>
