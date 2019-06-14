@@ -5,7 +5,7 @@ import Disqus from 'disqus-react';
 
 class Article extends React.Component {
     render() {
-        const disqusShortname = 'example';
+        const disqusShortname = process.env.PUBLIC_URL;
         const disqusConfig = {
             url: process.env.PUBLIC_URL,
             identifier: process.env.PUBLIC_URL,
