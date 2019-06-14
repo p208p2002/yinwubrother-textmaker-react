@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.css'
-import AdSense from 'react-adsense';
+// import AdSense from 'react-adsense';
 
 class Index extends Component {
     constructor(props) {
@@ -153,10 +153,10 @@ class Index extends Component {
                             下載圖片
                         </a>
                         <br/>
-                        <AdSense.Google
+                        {/* <AdSense.Google
                             client='ca-pub-3857728160074264'
                             slot='7831127442'
-                        />
+                        /> */}
                     </div>
 
                 }
