@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.css'
-// import ReactImageProcess from "react-image-process";
+import AdSense from 'react-adsense';
 
 class Index extends Component {
     constructor(props) {
@@ -152,8 +152,11 @@ class Index extends Component {
                         >
                             下載圖片
                         </a>
-                        {/* <button onClick={(e) => this.setFontSize(e, fontSize + 2)}>放大</button> */}
-                        {/* <button onClick={(e) => this.setFontSize(e, fontSize - 2)}>縮小</button> */}
+                        <br/>
+                        <AdSense.Google
+                            client='ca-pub-3857728160074264'
+                            slot='7831127442'
+                        />
                     </div>
 
                 }

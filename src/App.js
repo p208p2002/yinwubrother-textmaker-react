@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ImgBlocks from './modules/ImgBlocks/index.jsx'
 import DisqusBlock from './modules/Disqus/index.jsx'
+import AdSense from 'react-adsense';
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,11 @@ class App extends React.Component {
         <hr/>
         <div className="container">
           <ImgBlocks/>
+          <br/>
+          <AdSense.Google
+            client='ca-pub-3857728160074264'
+            slot='7831127442'
+          />
           <br/>
           <DisqusBlock/>
         </div>
