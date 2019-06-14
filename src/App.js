@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ImgBlocks from './modules/ImgBlocks/index.jsx'
+import DisqusBlock from './modules/Disqus/index.jsx'
 
 class App extends React.Component {
   render() {
@@ -10,6 +11,7 @@ class App extends React.Component {
         <hr/>
         <div className="container">
           <ImgBlocks/>
+          <DisqusBlock/>
         </div>
         <hr/>
         <div className="text-center">
