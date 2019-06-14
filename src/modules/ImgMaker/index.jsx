@@ -86,7 +86,7 @@ class Index extends Component {
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
-        console.log('recv', nextProps)
+        // console.log('recv', nextProps)
         this.setState({
             imgPath: nextProps.imgPath,
             imgPathOri: nextProps.imgPath
@@ -116,13 +116,17 @@ class Index extends Component {
                             key={JSON.stringify(this.state) + JSON.stringify(this.props)}
                             alt='Select IMG'
                         />
-                        <br/>
-
-                        <input
-                            type="text"
-                            value={this.state.textInput}
-                            onChange={this.handleChange}
-                        />
+                        <br />
+                        <div class="row justify-content-center">
+                            <div className="col-10 col-md-4">
+                                <input
+                                    className="form-control"
+                                    type="text"
+                                    value={this.state.textInput}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                        </div>
                         <button
                             className="btn btn-info"
                             onClick={(e) => {
@@ -131,14 +135,14 @@ class Index extends Component {
                                 })
                                 setTimeout(() => {
                                     this.makeText(e, textInput)
-                                }, 100)
+                                }, 0)
                             }}>來人上字</button>
                         <button
                             className="btn btn-secondary"
                             onClick={() => {
                                 this.setState({
                                     imgPath: this.state.imgPathOri,
-                                    textInput:''
+                                    textInput: ''
                                 })
                             }}>上錯字啦</button>
                         <a
@@ -153,7 +157,7 @@ class Index extends Component {
                     </div>
 
                 }
-                <br/>
+                <br />
             </div>
         );
     }

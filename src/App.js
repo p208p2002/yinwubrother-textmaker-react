@@ -11,6 +11,7 @@ class App extends React.Component {
         <hr/>
         <div className="container">
           <ImgBlocks/>
+          <br/>
           <DisqusBlock/>
         </div>
         <hr/>
