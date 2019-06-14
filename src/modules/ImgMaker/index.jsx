@@ -132,7 +132,7 @@ class Index extends Component {
                                 setTimeout(() => {
                                     this.makeText(e, textInput)
                                 }, 100)
-                            }}>上字</button>
+                            }}>來人上字</button>
                         <button
                             className="btn btn-secondary"
                             onClick={() => {
@@ -140,13 +140,13 @@ class Index extends Component {
                                     imgPath: this.state.imgPathOri,
                                     textInput:''
                                 })
-                            }}>重做</button>
+                            }}>上錯字啦</button>
                         <a
                             className="btn btn-success"
                             href={imgPath}
                             download
                         >
-                            下載
+                            下載圖片
                         </a>
                         {/* <button onClick={(e) => this.setFontSize(e, fontSize + 2)}>放大</button> */}
                         {/* <button onClick={(e) => this.setFontSize(e, fontSize - 2)}>縮小</button> */}
