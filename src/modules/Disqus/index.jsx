@@ -5,11 +5,11 @@ import Disqus from 'disqus-react';
 
 class Article extends React.Component {
     render() {
-        const disqusShortname = process.env.PUBLIC_URL;
+        const disqusShortname = '鸚鵡兄弟文字圖產生器';
         const disqusConfig = {
-            url: process.env.PUBLIC_URL,
-            identifier: process.env.PUBLIC_URL,
-            title: process.env.PUBLIC_URL,
+            url: 'https://p208p2002.github.io/yinwubrother-textmaker-react/',
+            identifier: 'https://p208p2002.github.io/yinwubrother-textmaker-react/',
+            title: 'https://p208p2002.github.io/yinwubrother-textmaker-react/',
         };
 
         return (
