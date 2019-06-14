@@ -69,7 +69,7 @@ class Index extends Component {
         lenn = ctx.measureText(addtext); //取得字的寬度
         text_w = (w - lenn.width) / 2; //0908寬度算法
 
-        if (1) {
+        if (0) {
             ctx.strokeStyle = "#000";
             ctx.lineWidth = 10;
             ctx.strokeText(addtext, text_w, text_h);
