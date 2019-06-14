@@ -7,9 +7,9 @@ class Article extends React.Component {
     render() {
         const disqusShortname = '鸚鵡兄弟文字圖產生器';
         const disqusConfig = {
-            url: 'https://p208p2002.github.io/yinwubrother-textmaker-react/',
-            identifier: 'https://p208p2002.github.io/yinwubrother-textmaker-react/',
-            title: 'https://p208p2002.github.io/yinwubrother-textmaker-react/',
+            url: window.location.href ,
+            identifier: window.location.href ,
+            title: 'yinwubrother-textmaker-react',
         };
 
         return (
