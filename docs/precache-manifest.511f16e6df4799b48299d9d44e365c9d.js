@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cb85db6c22650851638ab88db575c063",
+    "revision": "568758d8e875d9937d00cd5bdcbe0b3a",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/index.html"
   },
   {
-    "revision": "064ddc2870cbdb5c68ff",
-    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/css/main.ce86770c.chunk.css"
+    "revision": "b6b51d00b1fbc111fef5",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/css/main.f51ed601.chunk.css"
   },
   {
     "revision": "577d591d9cad576ca447",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/js/2.05764f39.chunk.js"
   },
   {
-    "revision": "064ddc2870cbdb5c68ff",
-    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/js/main.5474d5a1.chunk.js"
+    "revision": "b6b51d00b1fbc111fef5",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/js/main.2f09ba72.chunk.js"
   },
   {
     "revision": "e22720eebae56b46bf0b",
