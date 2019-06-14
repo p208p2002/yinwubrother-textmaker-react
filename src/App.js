@@ -15,7 +15,10 @@ class App extends React.Component {
           <br/>
           <AdSense.Google
             client='ca-pub-3857728160074264'
-            slot='7831127442'
+            slot='5604826184'
+            responsive="true"
+            format="auto"
+            style={{ display: 'block' }}
           />
           <br/>
           <DisqusBlock/>
