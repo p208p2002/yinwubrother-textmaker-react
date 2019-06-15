@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import './index.css'
+const axios = require('axios');
+const imgur = axios.create({
+    baseURL: 'https://api.imgur.com/3/',
+    timeout: 0,
+    headers: { 'Authorization': 'Client-ID ea2c833b74d4583' }
+});
 // import AdSense from 'react-adsense';
 
 class Index extends Component {
@@ -12,11 +18,45 @@ class Index extends Component {
             imgPath: props.imgPath,
             imgPathOri: props.imgPath,
             textInput: '',
+            upLoadAble:false,
+            showImgUploadLink:false,
+            uploadImgLink:''
         }
         this.setFontSize = this.setFontSize.bind(this)
-        this.onImgLoad = this.onImgLoad.bind(this);
+        // this.onImgLoad = this.onImgLoad.bind(this);
         this.makeText = this.makeText.bind(this);
         this.handleChange = this.handleChange.bind(this)
+        this.upLoadImg = this.upLoadImg.bind(this)
+    }
+
+    upLoadImg() {
+        let self = this
+        let { imgPath: imgBase64 } = this.state
+        imgBase64 = imgBase64.replace('data:image/png;base64,','')
+        // console.log(imgBase64)
+        this.setState({
+            upLoadAble:false
+        })
+        imgur.post('upload', {
+            'image': imgBase64
+        })
+            .then(function (response) {
+                // console.log(response);
+                let {data={}} = response.data,
+                {link=''} = data
+                console.log(data)
+                console.log(link)
+                self.setState({
+                    showImgUploadLink:true,
+                    uploadImgLink:link
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+                self.setState({
+                    upLoadAble:true
+                })
+            });
     }
 
     setFontSize(e, size) {
@@ -26,18 +66,18 @@ class Index extends Component {
         })
     }
 
-    onImgLoad({ target: img }) {
-        console.log('img', img)
-        console.log('src', img.src)
-        console.log(img.naturalWidth, img.naturalHeight)
-        this.setState({
+    // onImgLoad({ target: img }) {
+        // console.log('img', img)
+        // console.log('src', img.src)
+        // console.log(img.naturalWidth, img.naturalHeight)
+        // this.setState({
             // selectImgH: img.naturalHeight,
             // selectImgW: img.naturalWidth,
-        })
-    }
+        // })
+    // }
 
     makeText(e, text) {
-        console.log('click')
+        // console.log('click')
         // let { selectImgH, selectImgW } = this.state
         let selectImgH = 0, selectImgW = 0
         let { imgPath } = this.state
@@ -89,7 +129,9 @@ class Index extends Component {
         // console.log('recv', nextProps)
         this.setState({
             imgPath: nextProps.imgPath,
-            imgPathOri: nextProps.imgPath
+            imgPathOri: nextProps.imgPath,
+            upLoadAble:false,
+            showImgUploadLink:false
         })
 
     }
@@ -99,7 +141,8 @@ class Index extends Component {
     }
 
     render() {
-        let { selectImgH = 0, selectImgW = 0, imgPath = '', textInput } = this.state
+        let { selectImgH = 0, selectImgW = 0, imgPath = '',
+        textInput, upLoadAble, showImgUploadLink, uploadImgLink } = this.state
         console.log(selectImgH, selectImgW)
         return (
             <div key={JSON.stringify(this.props)}>
@@ -111,13 +154,13 @@ class Index extends Component {
                 {imgPath === '' ? '' :
                     <div id="img-maker" className="text-center">
                         <img
-                            onLoad={this.onImgLoad}
+                            // onLoad={this.onImgLoad}
                             src={imgPath}
                             key={JSON.stringify(this.state) + JSON.stringify(this.props)}
                             alt='Select IMG'
                         />
                         <br />
-                        <div class="row justify-content-center">
+                        <div className="row justify-content-center">
                             <div className="col-10 col-md-4">
                                 <input
                                     className="form-control"
@@ -135,6 +178,9 @@ class Index extends Component {
                                 })
                                 setTimeout(() => {
                                     this.makeText(e, textInput)
+                                    this.setState({
+                                        upLoadAble:true
+                                    })
                                 }, 0)
                             }}>來人上字</button>
                         <button
@@ -152,7 +198,31 @@ class Index extends Component {
                         >
                             下載圖片
                         </a>
+                        <br />
+                        <button
+                            className="btn btn-warning"
+                            onClick={this.upLoadImg}
+                            disabled={!upLoadAble}
+                            >取得圖片連結</button>
                         <br/>
+                        {showImgUploadLink?
+                        <div className="row justify-content-center">
+                        <div className="col-10 col-md-4">
+                            <input
+                                className="form-control"
+                                type="text"
+                                value={uploadImgLink}
+                                onClick={(e)=>{
+                                    e.target.select();
+                                    document.execCommand("copy");
+                                    alert("連結已複製");
+                                }}
+                            />
+                        </div>
+                    </div>
+                            :
+                        ''}
+                        <small>※在FB、Dcard等APP內置瀏覽器中開啟可能會無法正常下載圖片</small>
                         {/* <AdSense.Google
                             client='ca-pub-3857728160074264'
                             slot='7831127442'
