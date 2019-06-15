@@ -20,7 +20,7 @@ class Index extends Component {
             textInput: '',
             upLoadAble:false,
             showImgUploadLink:false,
-            uploadImgLink:''
+            uploadImgLink:'',
         }
         this.setFontSize = this.setFontSize.bind(this)
         // this.onImgLoad = this.onImgLoad.bind(this);
@@ -131,7 +131,8 @@ class Index extends Component {
             imgPath: nextProps.imgPath,
             imgPathOri: nextProps.imgPath,
             upLoadAble:false,
-            showImgUploadLink:false
+            showImgUploadLink:false,
+            uploadImgLink:''
         })
 
     }
@@ -200,16 +201,23 @@ class Index extends Component {
                             下載圖片
                         </a>
                         <br />
+                        {uploadImgLink === ''?
                         <button
-                            className="btn btn-warning"
-                            onClick={this.upLoadImg}
-                            disabled={!upLoadAble}
-                            >取得圖片連結</button>
+                        className="btn btn-warning"
+                        onClick={this.upLoadImg}
+                        disabled={!upLoadAble}
+                        >取得圖片連結</button>
+                        :
+                        ''
+                        }
                         <br/>
                         {showImgUploadLink?
                         <div className="row justify-content-center">
                         <div className="col-10 col-md-4">
                             <input
+                                style={{
+                                    marginTop:'-15px'
+                                }}
                                 className="form-control"
                                 type="text"
                                 value={uploadImgLink}
