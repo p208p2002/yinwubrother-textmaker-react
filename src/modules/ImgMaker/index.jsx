@@ -13,8 +13,8 @@ class Index extends Component {
         super(props);
         this.state = {
             fontSize: 20,
-            selectImgW: 0,
-            selectImgH: 0,
+            // selectImgW: 0,
+            // selectImgH: 0,
             imgPath: props.imgPath,
             imgPathOri: props.imgPath,
             textInput: '',
@@ -142,9 +142,8 @@ class Index extends Component {
     }
 
     render() {
-        let { selectImgH = 0, selectImgW = 0, imgPath = '',
-        textInput, upLoadAble, showImgUploadLink, uploadImgLink } = this.state
-        console.log(selectImgH, selectImgW)
+        let { imgPath = '', textInput, upLoadAble, showImgUploadLink, uploadImgLink } = this.state
+        // console.log(selectImgH, selectImgW)
         return (
             <div key={JSON.stringify(this.props)}>
                 <canvas
