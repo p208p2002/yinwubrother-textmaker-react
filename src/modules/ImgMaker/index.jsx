@@ -13,14 +13,13 @@ class Index extends Component {
         super(props);
         this.state = {
             fontSize: 20,
-            // selectImgW: 0,
-            // selectImgH: 0,
             imgPath: props.imgPath,
             imgPathOri: props.imgPath,
             textInput: '',
-            upLoadAble:false,
-            showImgUploadLink:false,
-            uploadImgLink:'',
+            upLoadAble: false,
+            showImgUploadLink: false,
+            uploadImgLink: '',
+            uploadStateText: '上傳並取得圖片連結'
         }
         this.setFontSize = this.setFontSize.bind(this)
         // this.onImgLoad = this.onImgLoad.bind(this);
@@ -32,29 +31,32 @@ class Index extends Component {
     upLoadImg() {
         let self = this
         let { imgPath: imgBase64 } = this.state
-        imgBase64 = imgBase64.replace('data:image/png;base64,','')
+        imgBase64 = imgBase64.replace('data:image/png;base64,', '')
         // console.log(imgBase64)
         this.setState({
-            upLoadAble:false
+            upLoadAble: false,
+            uploadStateText: '上傳中...'
         })
         imgur.post('upload', {
             'image': imgBase64
         })
             .then(function (response) {
                 // console.log(response);
-                let {data={}} = response.data,
-                {link=''} = data
+                let { data = {} } = response.data,
+                    { link = '' } = data
                 console.log(data)
                 console.log(link)
                 self.setState({
-                    showImgUploadLink:true,
-                    uploadImgLink:link
+                    showImgUploadLink: true,
+                    uploadImgLink: link,
+                    uploadStateText: '上傳並取得圖片連結'
                 })
             })
             .catch(function (error) {
                 console.log(error);
                 self.setState({
-                    upLoadAble:true
+                    upLoadAble: true,
+                    uploadStateText: '上傳並取得圖片連結'
                 })
             });
     }
@@ -66,19 +68,10 @@ class Index extends Component {
         })
     }
 
-    // onImgLoad({ target: img }) {
-        // console.log('img', img)
-        // console.log('src', img.src)
-        // console.log(img.naturalWidth, img.naturalHeight)
-        // this.setState({
-            // selectImgH: img.naturalHeight,
-            // selectImgW: img.naturalWidth,
-        // })
-    // }
-
     makeText(e, text) {
-        // console.log('click')
-        // let { selectImgH, selectImgW } = this.state
+        if (text === '')
+            return
+
         let selectImgH = 0, selectImgW = 0
         let { imgPath } = this.state
 
@@ -123,6 +116,11 @@ class Index extends Component {
         })
         canvas.width = 0
         canvas.height = 0
+
+        //允許上傳
+        this.setState({
+            upLoadAble: true
+        })
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -130,9 +128,9 @@ class Index extends Component {
         this.setState({
             imgPath: nextProps.imgPath,
             imgPathOri: nextProps.imgPath,
-            upLoadAble:false,
-            showImgUploadLink:false,
-            uploadImgLink:''
+            upLoadAble: false,
+            showImgUploadLink: false,
+            uploadImgLink: ''
         })
 
     }
@@ -142,19 +140,18 @@ class Index extends Component {
     }
 
     render() {
-        let { imgPath = '', textInput, upLoadAble, showImgUploadLink, uploadImgLink } = this.state
-        // console.log(selectImgH, selectImgW)
+        let { imgPath = '', textInput, upLoadAble,
+            showImgUploadLink, uploadImgLink, uploadStateText } = this.state
+
         return (
             <div key={JSON.stringify(this.props)}>
                 <canvas
                     id="output"
-                    // key={JSON.stringify(this.state)+ JSON.stringify(this.props)}
                     width="0" height="0"
                 />
                 {imgPath === '' ? '' :
                     <div id="img-maker" className="text-center">
                         <img
-                            // onLoad={this.onImgLoad}
                             src={imgPath}
                             key={JSON.stringify(this.state) + JSON.stringify(this.props)}
                             alt='Select IMG'
@@ -178,9 +175,6 @@ class Index extends Component {
                                 })
                                 setTimeout(() => {
                                     this.makeText(e, textInput)
-                                    this.setState({
-                                        upLoadAble:true
-                                    })
                                 }, 0)
                             }}>來人上字</button>
                         <button
@@ -189,9 +183,9 @@ class Index extends Component {
                                 this.setState({
                                     imgPath: this.state.imgPathOri,
                                     textInput: '',
-                                    upLoadAble:false,
-                                    uploadImgLink:'',
-                                    showImgUploadLink:false
+                                    upLoadAble: false,
+                                    uploadImgLink: '',
+                                    showImgUploadLink: false
                                 })
                             }}>上錯字啦</button>
                         <a
@@ -202,36 +196,37 @@ class Index extends Component {
                             下載圖片
                         </a>
                         <br />
-                        {uploadImgLink === ''?
-                        <button
-                        className="btn btn-warning"
-                        onClick={this.upLoadImg}
-                        disabled={!upLoadAble}
-                        >上傳並取得圖片連結</button>
-                        :
-                        ''
-                        }
-                        <br/>
-                        {showImgUploadLink?
-                        <div className="row justify-content-center">
-                        <div className="col-10 col-md-4">
-                            <input
-                                style={{
-                                    marginTop:'-15px'
-                                }}
-                                className="form-control"
-                                type="text"
-                                value={uploadImgLink}
-                                onClick={(e)=>{
-                                    e.target.select();
-                                    document.execCommand("copy");
-                                    alert("連結已複製");
-                                }}
-                            />
-                        </div>
-                    </div>
+                        {uploadImgLink === '' ?
+                            <button
+                                key={uploadStateText}
+                                className="btn btn-warning"
+                                onClick={this.upLoadImg}
+                                disabled={!upLoadAble}
+                            >{uploadStateText}</button>
                             :
-                        ''}
+                            ''
+                        }
+                        <br />
+                        {showImgUploadLink ?
+                            <div className="row justify-content-center">
+                                <div className="col-10 col-md-4">
+                                    <input
+                                        style={{
+                                            marginTop: '-15px'
+                                        }}
+                                        className="form-control"
+                                        type="text"
+                                        value={uploadImgLink}
+                                        onClick={(e) => {
+                                            e.target.select();
+                                            document.execCommand("copy");
+                                            alert("連結已複製");
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                            :
+                            ''}
                         <small>※在FB、Dcard等APP內置瀏覽器中開啟可能會無法正常下載圖片</small>
                         {/* <AdSense.Google
                             client='ca-pub-3857728160074264'
