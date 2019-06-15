@@ -65,7 +65,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "set PUBLIC_URL=https://p208p2002.github.io/yinwubrother-textmaker-react&& node scripts/build.js",
-    "release": "npm run build&&git add .&&git commit -m'release'&&git push",
+    "release": "npm run build&&git add ./docs/&&git commit -m'release'&&git push",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
