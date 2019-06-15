@@ -199,11 +199,11 @@ class Index extends Component {
                             下載圖片
                         </a>
                         <br />
-                        <button
+                        {/* <button
                             className="btn btn-warning"
                             onClick={this.upLoadImg}
                             disabled={!upLoadAble}
-                            >取得圖片連結</button>
+                            >取得圖片連結</button> */}
                         <br/>
                         {showImgUploadLink?
                         <div className="row justify-content-center">
