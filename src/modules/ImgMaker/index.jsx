@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './index.css'
 const axios = require('axios');
 const imgur = axios.create({
-    baseURL: 'https://api.imgur.com/3/',
+    baseURL: 'https://cors-anywhere.herokuapp.com/https://api.imgur.com/3/',
     timeout: 0,
     headers: { 'Authorization': 'Client-ID ea2c833b74d4583' }
 });
@@ -199,11 +199,11 @@ class Index extends Component {
                             下載圖片
                         </a>
                         <br />
-                        {/* <button
+                        <button
                             className="btn btn-warning"
                             onClick={this.upLoadImg}
                             disabled={!upLoadAble}
-                            >取得圖片連結</button> */}
+                            >取得圖片連結</button>
                         <br/>
                         {showImgUploadLink?
                         <div className="row justify-content-center">
