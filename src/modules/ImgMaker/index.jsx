@@ -188,7 +188,8 @@ class Index extends Component {
                             onClick={() => {
                                 this.setState({
                                     imgPath: this.state.imgPathOri,
-                                    textInput: ''
+                                    textInput: '',
+                                    upLoadAble:false
                                 })
                             }}>上錯字啦</button>
                         <a
