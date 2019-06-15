@@ -227,7 +227,7 @@ class Index extends Component {
                             </div>
                             :
                             ''}
-                        <small>※在FB、Dcard等APP內置瀏覽器中開啟可能會無法正常下載圖片</small>
+                        <small>※在FB、Dcard等App內置瀏覽器中開啟可能會無法正常下載圖片</small>
                         {/* <AdSense.Google
                             client='ca-pub-3857728160074264'
                             slot='7831127442'
