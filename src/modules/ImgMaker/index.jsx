@@ -190,7 +190,9 @@ class Index extends Component {
                                 this.setState({
                                     imgPath: this.state.imgPathOri,
                                     textInput: '',
-                                    upLoadAble:false
+                                    upLoadAble:false,
+                                    uploadImgLink:'',
+                                    showImgUploadLink:false
                                 })
                             }}>上錯字啦</button>
                         <a
@@ -206,7 +208,7 @@ class Index extends Component {
                         className="btn btn-warning"
                         onClick={this.upLoadImg}
                         disabled={!upLoadAble}
-                        >取得圖片連結</button>
+                        >上傳並取得圖片連結</button>
                         :
                         ''
                         }
