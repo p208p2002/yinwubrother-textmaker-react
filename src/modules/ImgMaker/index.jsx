@@ -196,7 +196,7 @@ class Index extends Component {
                                 <a
                                     className="btn btn-success"
                                     href={imgPath}
-                                    download={textInput===''?'image':textInput}
+                                    download={textInput===''?'image.jpeg':textInput+'.jpeg'}
                                 >
                                     下載圖片
                                 </a>
