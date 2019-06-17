@@ -237,7 +237,19 @@ class Index extends Component {
                             </div>
                             :
                             ''}
-                        <small>※在FB、Dcard等App內置瀏覽器中開啟可能會無法正常下載圖片</small>
+                        <small><button
+                        className="btn btn-sm btn-outline-info"
+                        onClick={()=>{
+                            toast.info('如果在APP內置瀏覽器中下載圖片可能會被自動阻擋。試著"在瀏覽器中開啟"，或長按圖片來進行存檔', {
+                                position: "bottom-center",
+                                autoClose: 5000,
+                                hideProgressBar: true,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                            });
+
+                        }}>無法下載圖片?</button></small>
                         {/* <AdSense.Google
                             client='ca-pub-3857728160074264'
                             slot='7831127442'
