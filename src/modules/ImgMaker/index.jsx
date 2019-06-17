@@ -243,9 +243,6 @@ class Index extends Component {
                             :
                             ''}
                         <small><button
-                            style={{
-                                marginTop:'-15px'
-                            }}
                             className="btn btn-sm btn-outline-info"
                             onClick={() => {
                                 toast.info('如果在APP內置瀏覽器中下載圖片可能會被自動阻擋。試著"在瀏覽器中開啟"，或長按圖片來進行存檔', {
