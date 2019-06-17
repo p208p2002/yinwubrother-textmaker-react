@@ -24,7 +24,7 @@ body{
 }
 
 #App .icon-align div{
-  margin-left: 2px;
+  padding-left: 2px;
 }
 
 @media only screen and (max-width: 768px){
