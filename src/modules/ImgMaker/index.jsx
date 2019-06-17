@@ -202,6 +202,7 @@ class Index extends Component {
                                 </a>
                             </div>
                             <br />
+                            {/* 圖片上傳按鈕 */}
                             {uploadImgLink === '' ?
                                 <button
                                     key={uploadStateText}
@@ -212,14 +213,13 @@ class Index extends Component {
                                 :
                                 ''
                             }
-                        </div>
-                        <br />
-                        {showImgUploadLink ?
+                            {/* 圖片上傳後連結 */}
+                            {showImgUploadLink ?
                             <div className="row justify-content-center">
                                 <div className="col-10 col-md-4">
                                     <input
                                         style={{
-                                            marginTop: '-15px'
+                                            // marginTop: '-15px'
                                         }}
                                         className="form-control"
                                         type="text"
@@ -242,7 +242,8 @@ class Index extends Component {
                             </div>
                             :
                             ''}
-                        <small><button
+                        </div>
+                        <button
                             className="btn btn-sm btn-outline-info"
                             onClick={() => {
                                 toast.info('如果在APP內置瀏覽器中下載圖片可能會被自動阻擋。試著"在瀏覽器中開啟"，或長按圖片來進行存檔', {
@@ -254,7 +255,8 @@ class Index extends Component {
                                     draggable: true,
                                 });
 
-                            }}>無法下載圖片?</button></small>
+                            }}>無法下載圖片?</button>
+                        <br />
                         {/* <AdSense.Google
                             client='ca-pub-3857728160074264'
                             slot='7831127442'
