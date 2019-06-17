@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.css'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const axios = require('axios');
 const imgur = axios.create({
@@ -265,7 +265,6 @@ class Index extends Component {
 
                 }
                 <br />
-                <ToastContainer />
             </div>
         );
     }

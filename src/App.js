@@ -12,6 +12,7 @@ import {
   LineShareButton,
   LineIcon,
 } from 'react-share';
+import { ToastContainer } from 'react-toastify';
 // import AdSense from 'react-adsense';
 
 var SHARE_URL = 'https://p208p2002.github.io/yinwubrother-textmaker-react/'
@@ -39,6 +40,7 @@ class App extends React.Component {
     let { style } = this.state
     return (
       <div id="App" className={style==='default'?'':'bg-black text-white'}>
+        <ToastContainer/>
         <div className={style==='default'?'container':'container content-dark'}>
         <div className="text-center">
           <h1>鸚鵡兄弟文字圖產生器</h1>
