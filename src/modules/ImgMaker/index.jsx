@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './index.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const axios = require('axios');
 const imgur = axios.create({
     baseURL: 'https://cors-anywhere.herokuapp.com/https://api.imgur.com/3/',
@@ -220,7 +222,15 @@ class Index extends Component {
                                         onClick={(e) => {
                                             e.target.select();
                                             document.execCommand("copy");
-                                            alert("連結已複製");
+                                            toast('連結已複製', {
+                                                position: "bottom-center",
+                                                autoClose: 2000,
+                                                hideProgressBar: true,
+                                                closeOnClick: true,
+                                                pauseOnHover: true,
+                                                draggable: true,
+                                            });
+
                                         }}
                                     />
                                 </div>
@@ -236,6 +246,7 @@ class Index extends Component {
 
                 }
                 <br />
+                <ToastContainer />
             </div>
         );
     }
