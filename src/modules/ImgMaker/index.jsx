@@ -151,6 +151,7 @@ class Index extends Component {
                     id="output"
                     width="0" height="0"
                 />
+
                 {imgPath === '' ? '' :
                     <div id="img-maker" className="text-center">
                         <img
@@ -169,45 +170,49 @@ class Index extends Component {
                                 />
                             </div>
                         </div>
-                        <button
-                            className="btn btn-info"
-                            onClick={(e) => {
-                                this.setState({
-                                    imgPath: this.state.imgPathOri
-                                })
-                                setTimeout(() => {
-                                    this.makeText(e, textInput)
-                                }, 0)
-                            }}>來人上字</button>
-                        <button
-                            className="btn btn-secondary"
-                            onClick={() => {
-                                this.setState({
-                                    imgPath: this.state.imgPathOri,
-                                    textInput: '',
-                                    upLoadAble: false,
-                                    uploadImgLink: '',
-                                    showImgUploadLink: false
-                                })
-                            }}>上錯字啦</button>
-                        <a
-                            className="btn btn-success"
-                            href={imgPath}
-                            download
-                        >
-                            下載圖片
-                        </a>
-                        <br />
-                        {uploadImgLink === '' ?
-                            <button
-                                key={uploadStateText}
-                                className="btn btn-warning"
-                                onClick={this.upLoadImg}
-                                disabled={!upLoadAble}
-                            >{uploadStateText}</button>
-                            :
-                            ''
-                        }
+                        <div className="action-buttons">
+                            <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                                <button
+                                    className="btn btn-info"
+                                    onClick={(e) => {
+                                        this.setState({
+                                            imgPath: this.state.imgPathOri
+                                        })
+                                        setTimeout(() => {
+                                            this.makeText(e, textInput)
+                                        }, 0)
+                                    }}>來人上字</button>
+                                <button
+                                    className="btn btn-secondary"
+                                    onClick={() => {
+                                        this.setState({
+                                            imgPath: this.state.imgPathOri,
+                                            textInput: '',
+                                            upLoadAble: false,
+                                            uploadImgLink: '',
+                                            showImgUploadLink: false
+                                        })
+                                    }}>上錯字啦</button>
+                                <a
+                                    className="btn btn-success"
+                                    href={imgPath}
+                                    download
+                                >
+                                    下載圖片
+                                </a>
+                            </div>
+                            <br />
+                            {uploadImgLink === '' ?
+                                <button
+                                    key={uploadStateText}
+                                    className="btn btn-warning upload-btn"
+                                    onClick={this.upLoadImg}
+                                    disabled={!upLoadAble}
+                                >{uploadStateText}</button>
+                                :
+                                ''
+                            }
+                        </div>
                         <br />
                         {showImgUploadLink ?
                             <div className="row justify-content-center">
@@ -238,18 +243,21 @@ class Index extends Component {
                             :
                             ''}
                         <small><button
-                        className="btn btn-sm btn-outline-info"
-                        onClick={()=>{
-                            toast.info('如果在APP內置瀏覽器中下載圖片可能會被自動阻擋。試著"在瀏覽器中開啟"，或長按圖片來進行存檔', {
-                                position: "bottom-center",
-                                autoClose: 5000,
-                                hideProgressBar: true,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                            });
+                            style={{
+                                marginTop:'-15px'
+                            }}
+                            className="btn btn-sm btn-outline-info"
+                            onClick={() => {
+                                toast.info('如果在APP內置瀏覽器中下載圖片可能會被自動阻擋。試著"在瀏覽器中開啟"，或長按圖片來進行存檔', {
+                                    position: "bottom-center",
+                                    autoClose: 5000,
+                                    hideProgressBar: true,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                });
 
-                        }}>無法下載圖片?</button></small>
+                            }}>無法下載圖片?</button></small>
                         {/* <AdSense.Google
                             client='ca-pub-3857728160074264'
                             slot='7831127442'
