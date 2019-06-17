@@ -232,10 +232,9 @@ class Index extends Component {
                                                 autoClose: 2000,
                                                 hideProgressBar: true,
                                                 closeOnClick: true,
-                                                pauseOnHover: true,
+                                                pauseOnHover: false,
                                                 draggable: true,
                                             });
-
                                         }}
                                     />
                                 </div>
@@ -251,7 +250,7 @@ class Index extends Component {
                                     autoClose: 5000,
                                     hideProgressBar: true,
                                     closeOnClick: true,
-                                    pauseOnHover: true,
+                                    pauseOnHover: false,
                                     draggable: true,
                                 });
 
