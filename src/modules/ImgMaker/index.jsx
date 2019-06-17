@@ -114,7 +114,7 @@ class Index extends Component {
         // console.log(canvas.toDataURL())
         // document.getElementById("DL").href=dl_link;
         this.setState({
-            imgPath: canvas.toDataURL()
+            imgPath: canvas.toDataURL("image/png")
         })
         canvas.width = 0
         canvas.height = 0
