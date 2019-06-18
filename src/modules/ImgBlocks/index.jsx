@@ -41,7 +41,17 @@ class View extends Component {
         }
 
         //load gifs
-        //
+        // index = 0
+        // while (index !== -1) {
+        //     try {
+        //         img = require('../../../public/yinwubrother-imgs/gif/' + index + '.gif');
+        //         yinwubrotherImgs.push(img)
+        //         index++
+        //     }
+        //     catch{
+        //         index = -1
+        //     }
+        // }
 
         this.setState({
             yinwubrotherImgs,
