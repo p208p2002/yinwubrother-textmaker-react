@@ -134,5 +134,6 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "lint:fix": "eslint src/**/*.js --fix"
 }
