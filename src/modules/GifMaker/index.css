@@ -1,0 +1,31 @@
+#img-maker img{
+    max-height: 500px;
+    width: auto;
+}
+
+#img-maker button{
+    /* margin-left: 2px; */
+    margin-top: 3px;
+}
+
+#img-maker a{
+    margin-top: 3px;
+    /* margin-left: 2px; */
+}
+
+#img-maker input{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+@media only screen and (max-width: 768px){
+    #img-maker img{
+        /* max-height: 300px; */
+        width: 100%;
+    }
+    #img-maker input{
+        margin-top: 8px;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}

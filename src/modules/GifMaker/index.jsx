@@ -9,7 +9,7 @@ const imgur = axios.create({
     headers: { 'Authorization': 'Client-ID ea2c833b74d4583' }
 });
 // import AdSense from 'react-adsense';
-// var gifFrames = require('gif-frames');
+var gifFrames = require('gif-frames');
 // var fs = require('fs');
 
 class Index extends Component {
@@ -23,28 +23,106 @@ class Index extends Component {
             upLoadAble: false,
             showImgUploadLink: false,
             uploadImgLink: '',
-            uploadStateText: '上傳並取得圖片連結'
+            uploadStateText: '上傳並取得圖片連結',
+            base64s: [], //gif frames with base64 format
+            saveBase64s: [] //gif frames with base64 format and text
         }
         this.setFontSize = this.setFontSize.bind(this)
         // this.onImgLoad = this.onImgLoad.bind(this);
         this.makeText = this.makeText.bind(this);
         this.handleChange = this.handleChange.bind(this)
         this.upLoadImg = this.upLoadImg.bind(this)
+        this.playGif = this.playGif.bind(this)
+        this.makeGif = this.makeGif.bind(this)
     }
 
-    // componentDidMount() {
-    //     gifFrames({
-    //         url: 'https://media0.giphy.com/media/7eAvzJ0SBBzHy/giphy.gif',
-    //         frames: 'all',
-    //         outputType :'canvas'
-    //     })
-    //     .then(function (frameData) {
-    //         frameData.map((data)=>{
-    //             console.log(data.getImage().toDataURL("image/png"))
-    //         })
-    //     })
-    //     .catch(console.error.bind(console));
-    // }
+    makeGif(w,h) {
+        console.log('make')
+        let { saveBase64s } = this.state
+        let self = this
+        gifshot.takeSnapShot({
+            gifWidth: w,
+            gifHeight: h,
+            images:saveBase64s,
+            interval: 0.1,
+            numFrames: 10,
+            frameDuration: 1,
+            fontWeight: 'normal',
+            fontSize: '16px',
+            fontFamily: 'sans-serif',
+            fontColor: '#ffffff',
+            textAlign: 'center',
+            textBaseline: 'bottom',
+            sampleInterval: 10,
+            numWorkers: 2
+        }, function (obj) {
+            if (!obj.error) {
+                var image = obj.image, animatedImage = document.createElement('img');
+                self.setState({
+                    imgPath:image
+                })
+            }
+        });
+    }
+
+    playGif(w, h) {
+        console.log(w, h)
+        let index = 0
+        if (interval)
+            clearInterval(interval)
+        var interval = setInterval(() => {
+            let { saveBase64s } = this.state
+            let canvas = document.getElementById('play_gif')
+            canvas.width = w
+            canvas.height = h
+            let ctx = canvas.getContext("2d");
+            let img = new Image()
+            img.src = saveBase64s[index]
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0, w, h)
+            }
+            index++
+
+            if (index === saveBase64s.length)
+                index = 0
+        }, 100)
+    }
+
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        this.setState({
+            imgPath: nextProps.imgPath,
+            imgPathOri: nextProps.imgPath,
+            upLoadAble: false,
+            showImgUploadLink: false,
+            uploadImgLink: ''
+        })
+
+    }
+
+    componentDidMount() {
+        let self = this,
+            { base64s, imgPath } = self.state
+        if (imgPath === '')
+            return
+        gifFrames({
+            url: imgPath,
+            frames: 'all',
+            outputType: 'canvas'
+        })
+            .then(function (frameData) {
+                frameData.map(function (data) {
+                    // console.log(data.getImage().toDataURL("image/png"))
+                    base64s.push(data.getImage().toDataURL("image/png"))
+                    return 0
+                })
+            })
+            .catch(console.error.bind(console));
+
+        // console.log(bas64s)
+        self.setState({
+            base64s
+        })
+    }
 
     upLoadImg() {
         let self = this
@@ -91,66 +169,75 @@ class Index extends Component {
             return
 
         let selectImgH = 0, selectImgW = 0
-        let { imgPath } = this.state
+        let { base64s } = this.state
+        let self = this
+        let saveBase64s = []
+        let promiseCount = 0
+        for (var i = 0; i < base64s.length; i++) {
+            var base64 = base64s[i]
+            let newImg = new Image()
+            newImg.src = base64
+            new Promise((resolve, reject) => {
+                newImg.onload = () => {
+                    selectImgH = newImg.naturalHeight
+                    selectImgW = newImg.naturalWidth
 
-        let newImg = new Image()
-        newImg.src = imgPath
-        selectImgH = newImg.naturalHeight
-        selectImgW = newImg.naturalWidth
-        var canvas = document.getElementById("output");
-        var ctx = canvas.getContext("2d");
-        canvas.width = selectImgW
-        canvas.height = selectImgH
+                    var canvas = document.getElementById("output_gif");
+                    var ctx = canvas.getContext("2d");
+                    canvas.width = selectImgW
+                    canvas.height = selectImgH
 
-        ctx.drawImage(newImg, 0, 0, selectImgW, selectImgH);
-        ctx.fillStyle = "rgba(252,255,255,1)";
+                    ctx.drawImage(newImg, 0, 0, selectImgW, selectImgH);
+                    ctx.fillStyle = "rgba(252,255,255,1)";
 
-        //
-        let addtext = text
-        var w = canvas.width;
-        var h = canvas.height;
+                    //
+                    let addtext = text
+                    var w = canvas.width;
+                    var h = canvas.height;
 
-        var text_w, text_h, text_l, text_fs
-        text_l = addtext.length; //輸入長度
-        text_fs = w / (text_l + 2);  //字體大小修正
-        text_h = h * 0.95;		//離圖片底部的高度
+                    var text_w, text_h, text_l, text_fs
+                    text_l = addtext.length; //輸入長度
+                    text_fs = w / (text_l + 2);  //字體大小修正
+                    text_h = h * 0.95;		//離圖片底部的高度
 
-        ctx.font = text_fs + "px  Microsoft YaHei";//即時修正字體大小
-        var lenn
-        lenn = ctx.measureText(addtext); //取得字的寬度
-        text_w = (w - lenn.width) / 2; //0908寬度算法
+                    ctx.font = text_fs + "px  Microsoft YaHei";//即時修正字體大小
+                    var lenn
+                    lenn = ctx.measureText(addtext); //取得字的寬度
+                    text_w = (w - lenn.width) / 2; //0908寬度算法
 
-        if (0) {
-            ctx.strokeStyle = "#000";
-            ctx.lineWidth = 10;
-            ctx.strokeText(addtext, text_w, text_h);
+                    //
+                    ctx.fillText(addtext, text_w, text_h); //選擇位置 && 上字
+
+                    //save to array
+                    // console.log(canvas.toDataURL())
+                    saveBase64s.push(canvas.toDataURL())
+
+                    canvas.width = 0
+                    canvas.height = 0
+                    promiseCount++
+                    return resolve()
+                }
+            })
+                .then(() => {
+                    // console.log(promiseCount, base64s.length)
+                    //end of loop
+                    if (promiseCount === base64s.length - 1) {
+
+                        self.setState({
+                            saveBase64s
+                        })
+                        // self.playGif(selectImgW, selectImgH)
+                        self.makeGif(selectImgW,selectImgH)
+                    }
+                })
+
+
         }
-
-        ctx.fillText(addtext, text_w, text_h); //選擇位置 && 上字
-        // console.log(canvas.toDataURL())
-        // document.getElementById("DL").href=dl_link;
-        this.setState({
-            imgPath: canvas.toDataURL("image/png")
-        })
-        canvas.width = 0
-        canvas.height = 0
 
         //允許上傳
         this.setState({
             upLoadAble: true
         })
-    }
-
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        // console.log('recv', nextProps)
-        this.setState({
-            imgPath: nextProps.imgPath,
-            imgPathOri: nextProps.imgPath,
-            upLoadAble: false,
-            showImgUploadLink: false,
-            uploadImgLink: ''
-        })
-
     }
 
     handleChange(event) {
@@ -164,7 +251,11 @@ class Index extends Component {
         return (
             <div key={JSON.stringify(this.props)}>
                 <canvas
-                    id="output"
+                    id="play_gif"
+                    width="0" height="0"
+                />
+                <canvas
+                    id="output_gif"
                     width="0" height="0"
                 />
 
@@ -212,7 +303,7 @@ class Index extends Component {
                                 <a
                                     className="btn btn-success"
                                     href={imgPath}
-                                    download={textInput === '' ? 'image.jpeg' : textInput + '.png'}
+                                    download={textInput === '' ? 'image.gif' : textInput + '.gif'}
                                 >
                                     下載圖片
                                 </a>

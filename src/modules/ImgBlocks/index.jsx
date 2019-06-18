@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.css'
 import ImgMaker from '../ImgMaker/index.jsx'
+import GifMaker from '../GifMaker/index.jsx'
 
 class View extends Component {
     constructor(props) {
@@ -9,18 +10,18 @@ class View extends Component {
             loading: true,
             yinwubrotherImgs: [],
             showMaker: true,
-            selectImgPath:''
+            selectImgPath: ''
         }
         this.imgOnClick = this.imgOnClick.bind(this)
     }
 
-    imgOnClick(e,imgpath){
+    imgOnClick(e, imgpath) {
         window.scrollTo(0, 0);
         console.log(imgpath)
         // let {showMaker} = this.state
         this.setState({
             // showMaker:!showMaker,
-            selectImgPath:imgpath
+            selectImgPath: imgpath
         })
     }
 
@@ -41,45 +42,50 @@ class View extends Component {
         }
 
         //load gifs
-        // index = 0
-        // while (index !== -1) {
-        //     try {
-        //         img = require('../../../public/yinwubrother-imgs/gif/' + index + '.gif');
-        //         yinwubrotherImgs.push(img)
-        //         index++
-        //     }
-        //     catch{
-        //         index = -1
-        //     }
-        // }
+        index = 0
+        while (index !== -1) {
+            try {
+                img = require('../../../public/yinwubrother-imgs/gif/' + index + '.gif');
+                yinwubrotherImgs.push(img)
+                index++
+            }
+            catch{
+                index = -1
+            }
+        }
 
         this.setState({
             yinwubrotherImgs,
-            loading:false
+            loading: false
         })
     }
     render() {
-        let { yinwubrotherImgs,showMaker,selectImgPath } = this.state
+        let { yinwubrotherImgs, showMaker, selectImgPath } = this.state
         return (
             <div id="img-block">
-                {showMaker?
+                {showMaker ?
                     <div>
+                        <GifMaker
+                            imgPath={selectImgPath}
+                            key={selectImgPath+'1'}
+                        />
                         <ImgMaker
-                            imgPath = {selectImgPath}
+                            imgPath={selectImgPath}
+                            key={selectImgPath+'2'}
                         />
                     </div>
                     :
                     ''
                 }
                 <div className="row">
-                    {yinwubrotherImgs.map((imgPath,index) => {
+                    {yinwubrotherImgs.map((imgPath, index) => {
                         return (
                             <div className="col-md-1 col-4 block-padding" key={index}>
                                 <img
                                     className="img"
                                     src={imgPath}
                                     alt=""
-                                    onClick={(e)=>this.imgOnClick(e,imgPath)}
+                                    onClick={(e) => this.imgOnClick(e, imgPath)}
                                 />
                             </div>
                         )
