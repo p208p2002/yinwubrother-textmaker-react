@@ -39,7 +39,7 @@ class Index extends Component {
     makeGif(w,h) {
         toast.info('小夥伴努力上字中🏋️', {
             position: "bottom-center",
-            autoClose: 1000,
+            autoClose: 1500,
             hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: false,

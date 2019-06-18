@@ -9,3 +9,12 @@
 #img-block .block-padding{
     padding: 2px;
 }
+
+#img-block h4{
+    font-size: 18px;
+}
+
+#img-block .row-width{
+    padding-left: 10px;
+    padding-right: 10px;
+}

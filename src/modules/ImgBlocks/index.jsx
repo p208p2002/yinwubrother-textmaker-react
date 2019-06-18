@@ -9,6 +9,7 @@ class View extends Component {
         this.state = {
             loading: true,
             yinwubrotherImgs: [],
+            yinwubrotherGifs:[],
             showMaker: true,
             selectImgPath: ''
         }
@@ -26,7 +27,7 @@ class View extends Component {
     }
 
     componentDidMount() {
-        let { yinwubrotherImgs = [] } = this.state
+        let { yinwubrotherImgs = [], yinwubrotherGifs=[] } = this.state
         let img, index = 0
 
         //load jpgs
@@ -47,7 +48,7 @@ class View extends Component {
         while (index !== -1) {
             try {
                 img = require('../../../public/yinwubrother-imgs/gif/' + index + '.gif');
-                yinwubrotherImgs.push(img)
+                yinwubrotherGifs.push(img)
                 index++
             }
             catch{
@@ -64,7 +65,7 @@ class View extends Component {
         })
     }
     render() {
-        let { yinwubrotherImgs, showMaker, selectImgPath } = this.state
+        let { yinwubrotherImgs, yinwubrotherGifs, showMaker, selectImgPath } = this.state
         var re = /\.gif$/i;
         var match = selectImgPath.match(re)
         let gifResource = match? true : false
@@ -87,8 +88,27 @@ class View extends Component {
                     :
                     ''
                 }
-                <div className="row">
+                <h4 className="text-center">靜態圖集</h4>
+                <hr/>
+                <div className="row row-width">
                     {yinwubrotherImgs.map((imgPath, index) => {
+                        return (
+                            <div className="col-md-1 col-4 block-padding" key={index}>
+                                <img
+                                    className="img"
+                                    src={imgPath}
+                                    alt=""
+                                    onClick={(e) => this.imgOnClick(e, imgPath)}
+                                />
+                            </div>
+                        )
+                    })}
+                </div>
+                <br/>
+                <h4 className="text-center">動態圖集</h4>
+                <hr/>
+                <div className="row row-width">
+                    {yinwubrotherGifs.map((imgPath, index) => {
                         return (
                             <div className="col-md-1 col-4 block-padding" key={index}>
                                 <img
