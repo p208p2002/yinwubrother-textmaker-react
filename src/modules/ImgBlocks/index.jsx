@@ -29,7 +29,22 @@ class View extends Component {
         let { yinwubrotherImgs = [] } = this.state
         let img, index = 0
 
+         //load gifs
+         index = 0
+         while (index !== -1) {
+             try {
+                 img = require('../../../public/yinwubrother-imgs/gif/' + index + '.gif');
+                 yinwubrotherImgs.push(img)
+                 index++
+             }
+             catch{
+                 index = -1
+             }
+         }
+
+
         //load jpgs
+        index = 0
         while (index !== -1) {
             try {
                 img = require('../../../public/yinwubrother-imgs/jpg/' + index + '.jpg');
@@ -41,18 +56,7 @@ class View extends Component {
             }
         }
 
-        //load gifs
-        index = 0
-        while (index !== -1) {
-            try {
-                img = require('../../../public/yinwubrother-imgs/gif/' + index + '.gif');
-                yinwubrotherImgs.push(img)
-                index++
-            }
-            catch{
-                index = -1
-            }
-        }
+
 
         this.setState({
             yinwubrotherImgs,
@@ -61,18 +65,24 @@ class View extends Component {
     }
     render() {
         let { yinwubrotherImgs, showMaker, selectImgPath } = this.state
+        var re = /\.gif$/i;
+        var match = selectImgPath.match(re)
+        let gifResource = match? true : false
         return (
             <div id="img-block">
                 {showMaker ?
                     <div>
-                        <GifMaker
-                            imgPath={selectImgPath}
-                            key={selectImgPath+'1'}
-                        />
-                        <ImgMaker
-                            imgPath={selectImgPath}
-                            key={selectImgPath+'2'}
-                        />
+                        {gifResource ?
+                            <GifMaker
+                                imgPath={selectImgPath}
+                                key={selectImgPath + '1'}
+                            />
+                            :
+                            <ImgMaker
+                                imgPath={selectImgPath}
+                                key={selectImgPath + '2'}
+                            />
+                        }
                     </div>
                     :
                     ''

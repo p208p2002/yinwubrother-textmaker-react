@@ -52,6 +52,15 @@ class App extends React.Component {
     this.setState({
       style
     })
+
+    toast.info('鸚鵡兄弟動起來啦~動圖功能上線🎉🎉', {
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+  });
   }
 
   changeStyle() {

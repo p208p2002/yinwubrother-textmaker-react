@@ -37,7 +37,15 @@ class Index extends Component {
     }
 
     makeGif(w,h) {
-        console.log('make')
+        toast.info('小夥伴努力上字中🏋️', {
+            position: "bottom-center",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+        });
+        // console.log('make')
         let { saveBase64s } = this.state
         let self = this
         gifshot.takeSnapShot({
