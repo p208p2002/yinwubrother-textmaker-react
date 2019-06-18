@@ -27,9 +27,11 @@ class View extends Component {
     componentDidMount() {
         let { yinwubrotherImgs = [] } = this.state
         let img, index = 0
+
+        //load jpgs
         while (index !== -1) {
             try {
-                img = require('../../../public/yinwubrother-imgs/' + index + '.jpg');
+                img = require('../../../public/yinwubrother-imgs/jpg/' + index + '.jpg');
                 yinwubrotherImgs.push(img)
                 index++
             }
@@ -37,6 +39,10 @@ class View extends Component {
                 index = -1
             }
         }
+
+        //load gifs
+        //
+
         this.setState({
             yinwubrotherImgs,
             loading:false
