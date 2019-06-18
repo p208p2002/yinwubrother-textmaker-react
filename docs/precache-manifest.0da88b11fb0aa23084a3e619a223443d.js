@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "340d252079f2d14772a3cf30e371bf83",
+    "revision": "42601e454ff9e79b8f958811a74b019f",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/index.html"
   },
   {
-    "revision": "dff021a063ea813b150f",
+    "revision": "1cc3b3035c318580ab0e",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/css/2.39017165.chunk.css"
   },
   {
-    "revision": "f01b703a6b40021370c8",
-    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/css/main.9dcf2d73.chunk.css"
+    "revision": "4e6d7d5f438ff2505d36",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/css/main.a5c8d352.chunk.css"
   },
   {
-    "revision": "dff021a063ea813b150f",
-    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/js/2.cd4dd491.chunk.js"
+    "revision": "1cc3b3035c318580ab0e",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/js/2.26f78cd4.chunk.js"
   },
   {
-    "revision": "f01b703a6b40021370c8",
-    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/js/main.df386673.chunk.js"
+    "revision": "4e6d7d5f438ff2505d36",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/js/main.118efc54.chunk.js"
   },
   {
     "revision": "e22720eebae56b46bf0b",
@@ -28,12 +28,28 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/0.6ed9e07e.jpg"
   },
   {
+    "revision": "8cd75c649c91123a3ee43d9d9824ac6c",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/0.8cd75c64.gif"
+  },
+  {
     "revision": "497a5c2350db1e874adf3b94e0d70188",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/1.497a5c23.jpg"
   },
   {
+    "revision": "5cae2bbcb0144f904f9d230a84688db1",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/1.5cae2bbc.gif"
+  },
+  {
+    "revision": "a83750471030238355702772937ba915",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/10.a8375047.gif"
+  },
+  {
     "revision": "ddc83e71d9eb6432036cf7d534f65e98",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/10.ddc83e71.jpg"
+  },
+  {
+    "revision": "4fdf8f414b393e2cc9497bb13386faa6",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/11.4fdf8f41.gif"
   },
   {
     "revision": "c3b9ed53d9eb05038c392cb750e0a58d",
@@ -74,6 +90,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "34d76db829a5402d458aa5b0ed5cc923",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/2.34d76db8.jpg"
+  },
+  {
+    "revision": "e4c567147b225712e1446e653201749d",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/2.e4c56714.gif"
   },
   {
     "revision": "e7a960ad466b926f6979b37400638faf",
@@ -120,6 +140,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/3.5a14ec93.jpg"
   },
   {
+    "revision": "d7c35df94999a589d94db4a73a02a54d",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/3.d7c35df9.gif"
+  },
+  {
     "revision": "0eeb0022aed552fea197608bb09c3e7c",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/30.0eeb0022.jpg"
   },
@@ -164,6 +188,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/4.5aadbf56.jpg"
   },
   {
+    "revision": "fe1f03e32a69d1af7bdb9f06b7261f79",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/4.fe1f03e3.gif"
+  },
+  {
     "revision": "c53a8ee5a2156a6f08a7269ce3964179",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/40.c53a8ee5.jpg"
   },
@@ -190,6 +218,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "58ed5959db53093f54615e20007f570d",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/49.58ed5959.jpg"
+  },
+  {
+    "revision": "524df7a19c866ef5ec03bfb5acbf06fc",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/5.524df7a1.gif"
   },
   {
     "revision": "c74dfa7675898a9954435723192c08ee",
@@ -220,6 +252,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/58.ac55bd05.jpg"
   },
   {
+    "revision": "cb55b193d8642b30ba869212bd77c059",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/6.cb55b193.gif"
+  },
+  {
     "revision": "e50c3aa0eeb1d0d2399bc68e2aacc1bb",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/6.e50c3aa0.jpg"
   },
@@ -240,11 +276,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/7.86857f75.jpg"
   },
   {
+    "revision": "e62aba17da1c63127427ed82ef0e6f41",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/7.e62aba17.gif"
+  },
+  {
     "revision": "5ee878594b67fd4d43bec2e8310adda9",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/8.5ee87859.jpg"
   },
   {
+    "revision": "9ea553377e3944c5fe647689004f58c2",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/8.9ea55337.gif"
+  },
+  {
     "revision": "7a5721d5c4f810d5644f99fd50f1fd76",
     "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/9.7a5721d5.jpg"
+  },
+  {
+    "revision": "e0eb0032d60283edaa715f0ceffa270f",
+    "url": "https://p208p2002.github.io/yinwubrother-textmaker-react/static/media/9.e0eb0032.gif"
   }
 ]);
