@@ -29,20 +29,6 @@ class View extends Component {
         let { yinwubrotherImgs = [] } = this.state
         let img, index = 0
 
-         //load gifs
-         index = 0
-         while (index !== -1) {
-             try {
-                 img = require('../../../public/yinwubrother-imgs/gif/' + index + '.gif');
-                 yinwubrotherImgs.push(img)
-                 index++
-             }
-             catch{
-                 index = -1
-             }
-         }
-
-
         //load jpgs
         index = 0
         while (index !== -1) {
@@ -55,6 +41,20 @@ class View extends Component {
                 index = -1
             }
         }
+
+        //load gifs
+        index = 0
+        while (index !== -1) {
+            try {
+                img = require('../../../public/yinwubrother-imgs/gif/' + index + '.gif');
+                yinwubrotherImgs.push(img)
+                index++
+            }
+            catch{
+                index = -1
+            }
+        }
+
 
 
 
