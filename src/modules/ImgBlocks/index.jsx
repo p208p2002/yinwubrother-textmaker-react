@@ -9,8 +9,7 @@ class View extends Component {
         this.state = {
             loading: true,
             yinwubrotherImgs: [],
-            yinwubrotherGifs:[],
-            showMaker: true,
+            yinwubrotherGifs: [],
             selectImgPath: ''
         }
         this.imgOnClick = this.imgOnClick.bind(this)
@@ -19,15 +18,13 @@ class View extends Component {
     imgOnClick(e, imgpath) {
         window.scrollTo(0, 0);
         console.log(imgpath)
-        // let {showMaker} = this.state
         this.setState({
-            // showMaker:!showMaker,
             selectImgPath: imgpath
         })
     }
 
     componentDidMount() {
-        let { yinwubrotherImgs = [], yinwubrotherGifs=[] } = this.state
+        let { yinwubrotherImgs = [], yinwubrotherGifs = [] } = this.state
         let img, index = 0
 
         //load jpgs
@@ -56,40 +53,34 @@ class View extends Component {
             }
         }
 
-
-
-
         this.setState({
             yinwubrotherImgs,
             loading: false
         })
     }
+
     render() {
-        let { yinwubrotherImgs, yinwubrotherGifs, showMaker, selectImgPath } = this.state
+        let { yinwubrotherImgs, yinwubrotherGifs, selectImgPath } = this.state
         var re = /\.gif$/i;
         var match = selectImgPath.match(re)
-        let gifResource = match? true : false
+        let gifResource = match ? true : false
         return (
             <div id="img-block">
-                {showMaker ?
-                    <div>
-                        {gifResource ?
-                            <GifMaker
-                                imgPath={selectImgPath}
-                                key={selectImgPath + '1'}
-                            />
-                            :
-                            <ImgMaker
-                                imgPath={selectImgPath}
-                                key={selectImgPath + '2'}
-                            />
-                        }
-                    </div>
-                    :
-                    ''
-                }
+                <div>
+                    {gifResource ?
+                        <GifMaker
+                            imgPath={selectImgPath}
+                            key={selectImgPath + '1'}
+                        />
+                        :
+                        <ImgMaker
+                            imgPath={selectImgPath}
+                            key={selectImgPath + '2'}
+                        />
+                    }
+                </div>
                 <h4 className="text-center">靜態圖集</h4>
-                <hr/>
+                <hr />
                 <div className="row row-width">
                     {yinwubrotherImgs.map((imgPath, index) => {
                         return (
@@ -104,9 +95,9 @@ class View extends Component {
                         )
                     })}
                 </div>
-                <br/>
+                <br />
                 <h4 className="text-center">動態圖集</h4>
-                <hr/>
+                <hr />
                 <div className="row row-width">
                     {yinwubrotherGifs.map((imgPath, index) => {
                         return (
