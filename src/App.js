@@ -156,7 +156,7 @@ class App extends React.Component {
               className={style === 'default' ? 'btn btn-sm btn-outline-secondary' : 'btn btn-sm btn-outline-light'}
               onClick={this.changeStyle}>切換主題:{style.charAt(0).toUpperCase() + style.slice(1)}</button>
             <br />
-            圖片皆來自Google
+            {/* 圖片皆來自Google */}
         </div>
           <br />
 
