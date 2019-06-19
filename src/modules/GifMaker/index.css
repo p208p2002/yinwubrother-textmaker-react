@@ -13,6 +13,13 @@
     /* margin-left: 2px; */
 }
 
+#img-maker .input-up {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
 #img-maker input{
     margin-top: 8px;
     margin-bottom: 8px;

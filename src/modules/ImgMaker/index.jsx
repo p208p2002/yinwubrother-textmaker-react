@@ -23,28 +23,41 @@ class Index extends Component {
             upLoadAble: false,
             showImgUploadLink: false,
             uploadImgLink: '',
-            uploadStateText: '上傳並取得圖片連結'
+            uploadStateText: '上傳並取得圖片連結',
+            // windowHeightOri: window.innerHeight,
+            upInput: false
         }
         this.setFontSize = this.setFontSize.bind(this)
         // this.onImgLoad = this.onImgLoad.bind(this);
         this.makeText = this.makeText.bind(this);
         this.handleChange = this.handleChange.bind(this)
         this.upLoadImg = this.upLoadImg.bind(this)
+        this.onBlurInput = this.onBlurInput.bind(this)
+        this.inputKeyDown = this.inputKeyDown.bind(this)
     }
 
-    // componentDidMount() {
-    //     gifFrames({
-    //         url: 'https://media0.giphy.com/media/7eAvzJ0SBBzHy/giphy.gif',
-    //         frames: 'all',
-    //         outputType :'canvas'
-    //     })
-    //     .then(function (frameData) {
-    //         frameData.map((data)=>{
-    //             console.log(data.getImage().toDataURL("image/png"))
-    //         })
-    //     })
-    //     .catch(console.error.bind(console));
-    // }
+    inputKeyDown(e) {
+        if (e.key === 'Enter') {
+            e.target.blur()
+            this.setState({
+                imgPath: this.state.imgPathOri,
+                upInput: false
+            })
+            let { textInput } = this.state
+            setTimeout(() => {
+                this.makeText(e, textInput)
+            }, 0)
+        }
+    }
+
+
+    onBlurInput() {
+        setTimeout(() => {
+            this.setState({
+                upInput: false
+            })
+        }, 0)
+    }
 
     upLoadImg() {
         let self = this
@@ -154,13 +167,17 @@ class Index extends Component {
     }
 
     handleChange(event) {
+        let { windowHeightOri } = this.state
+        console.log(window.innerHeight, windowHeightOri, windowHeightOri - window.innerHeight)
         this.setState({ textInput: event.target.value });
     }
 
     render() {
         let { imgPath = '', textInput, upLoadAble,
-            showImgUploadLink, uploadImgLink, uploadStateText } = this.state
-
+            showImgUploadLink, uploadImgLink, uploadStateText, upInput } = this.state
+        if (window && window.innerWidth > 768) {
+            upInput = false
+        }
         return (
             <div key={JSON.stringify(this.props)}>
                 <canvas
@@ -179,10 +196,17 @@ class Index extends Component {
                         <div className="row justify-content-center">
                             <div className="col-10 col-md-4">
                                 <input
-                                    className="form-control"
+                                    className={upInput === true ? "form-control input-up" : "form-control"}
                                     type="text"
                                     value={this.state.textInput}
                                     onChange={this.handleChange}
+                                    onClick={(e) => {
+                                        this.setState({
+                                            upInput: true
+                                        })
+                                    }}
+                                    onBlur={this.onBlurInput}
+                                    onKeyDown={this.inputKeyDown}
                                 />
                             </div>
                         </div>

@@ -25,7 +25,8 @@ class Index extends Component {
             uploadImgLink: '',
             uploadStateText: '上傳並取得圖片連結',
             base64s: [], //gif frames with base64 format
-            saveBase64s: [] //gif frames with base64 format and text
+            saveBase64s: [], //gif frames with base64 format and text,
+            upInput:false
         }
         this.setFontSize = this.setFontSize.bind(this)
         // this.onImgLoad = this.onImgLoad.bind(this);
@@ -34,9 +35,34 @@ class Index extends Component {
         this.upLoadImg = this.upLoadImg.bind(this)
         this.playGif = this.playGif.bind(this)
         this.makeGif = this.makeGif.bind(this)
+        this.onBlurInput = this.onBlurInput.bind(this)
+        this.inputKeyDown = this.inputKeyDown.bind(this)
     }
 
-    makeGif(w,h) {
+    inputKeyDown(e) {
+        if (e.key === 'Enter') {
+            e.target.blur()
+            this.setState({
+                imgPath: this.state.imgPathOri,
+                upInput: false
+            })
+            let { textInput } = this.state
+            setTimeout(() => {
+                this.makeText(e, textInput)
+            }, 0)
+        }
+    }
+
+
+    onBlurInput() {
+        setTimeout(() => {
+            this.setState({
+                upInput: false
+            })
+        }, 0)
+    }
+
+    makeGif(w, h) {
         toast.info('請耐心稍後，小夥伴努力上字中...', {
             position: "bottom-center",
             autoClose: 2000,
@@ -51,7 +77,7 @@ class Index extends Component {
         gifshot.takeSnapShot({
             gifWidth: w,
             gifHeight: h,
-            images:saveBase64s,
+            images: saveBase64s,
             interval: 0.1,
             numFrames: saveBase64s.length,
             frameDuration: 1,
@@ -67,7 +93,7 @@ class Index extends Component {
             if (!obj.error) {
                 var image = obj.image;
                 self.setState({
-                    imgPath:image
+                    imgPath: image
                 })
             }
         });
@@ -235,7 +261,7 @@ class Index extends Component {
                             saveBase64s
                         })
                         // self.playGif(selectImgW, selectImgH)
-                        self.makeGif(selectImgW,selectImgH)
+                        self.makeGif(selectImgW, selectImgH)
                     }
                 })
 
@@ -254,8 +280,10 @@ class Index extends Component {
 
     render() {
         let { imgPath = '', textInput, upLoadAble,
-            showImgUploadLink, uploadImgLink, uploadStateText } = this.state
-
+            showImgUploadLink, uploadImgLink, uploadStateText, upInput } = this.state
+        if (window && window.innerWidth > 768) {
+            upInput = false
+        }
         return (
             <div key={JSON.stringify(this.props)}>
                 <canvas
@@ -278,10 +306,17 @@ class Index extends Component {
                         <div className="row justify-content-center">
                             <div className="col-10 col-md-4">
                                 <input
-                                    className="form-control"
+                                    className={upInput === true ? "form-control input-up" : "form-control"}
                                     type="text"
                                     value={this.state.textInput}
                                     onChange={this.handleChange}
+                                    onClick={(e) => {
+                                        this.setState({
+                                            upInput: true
+                                        })
+                                    }}
+                                    onBlur={this.onBlurInput}
+                                    onKeyDown={this.inputKeyDown}
                                 />
                             </div>
                         </div>

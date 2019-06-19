@@ -55,12 +55,23 @@ class App extends React.Component {
 
     toast.info('鸚鵡兄弟動起來啦~動圖功能上線🎉🎉', {
       position: "bottom-center",
-      autoClose: 2000,
+      autoClose: 2500,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: false,
       draggable: true,
-  });
+    });
+
+    // setTimeout(()=>{
+    //   toast.warning('目前已知手機鍵盤可能會遮蓋到編輯介面，頭痛處理中...', {
+    //     position: "bottom-center",
+    //     autoClose: 2500,
+    //     hideProgressBar: true,
+    //     closeOnClick: true,
+    //     pauseOnHover: false,
+    //     draggable: true,
+    // });
+    // },1500)
   }
 
   changeStyle() {
