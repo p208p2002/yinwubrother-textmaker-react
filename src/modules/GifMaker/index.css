@@ -1,36 +1,36 @@
-#img-maker img{
+#img-maker-gif img{
     max-height: 500px;
     width: auto;
 }
 
-#img-maker button{
+#img-maker-gif button{
     /* margin-left: 2px; */
     margin-top: 3px;
 }
 
-#img-maker a{
+#img-maker-gif a{
     margin-top: 3px;
     /* margin-left: 2px; */
 }
 
-#img-maker .input-up {
+#img-maker-gif .input-up {
     position: fixed;
     bottom: 0px;
     left: 0px;
     z-index: 1;
 }
 
-#img-maker input{
+#img-maker-gif input{
     margin-top: 8px;
     margin-bottom: 8px;
 }
 
 @media only screen and (max-width: 768px){
-    #img-maker img{
+    #img-maker-gif img{
         /* max-height: 300px; */
         width: 100%;
     }
-    #img-maker input{
+    #img-maker-gif input{
         margin-top: 8px;
         width: 100%;
         margin-bottom: 8px;

@@ -296,7 +296,7 @@ class Index extends Component {
                 />
 
                 {imgPath === '' ? '' :
-                    <div id="img-maker" className="text-center">
+                    <div id="img-maker-gif" className="text-center">
                         <img
                             src={imgPath}
                             key={JSON.stringify(this.state) + JSON.stringify(this.props)}
