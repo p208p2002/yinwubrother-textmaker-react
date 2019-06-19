@@ -65,7 +65,7 @@ class Index extends Component {
             numWorkers: 2
         }, function (obj) {
             if (!obj.error) {
-                var image = obj.image, animatedImage = document.createElement('img');
+                var image = obj.image;
                 self.setState({
                     imgPath:image
                 })
@@ -135,7 +135,7 @@ class Index extends Component {
     upLoadImg() {
         let self = this
         let { imgPath: imgBase64 } = this.state
-        imgBase64 = imgBase64.replace('data:image/png;base64,', '')
+        imgBase64 = imgBase64.replace('data:image/gif;base64,', '')
         // console.log(imgBase64)
         this.setState({
             upLoadAble: false,
