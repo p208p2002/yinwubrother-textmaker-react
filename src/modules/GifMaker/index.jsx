@@ -37,9 +37,9 @@ class Index extends Component {
     }
 
     makeGif(w,h) {
-        toast.info('小夥伴努力上字中🏋️', {
+        toast.info('請耐心稍後，小夥伴努力上字中...', {
             position: "bottom-center",
-            autoClose: 1500,
+            autoClose: 2000,
             hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: false,
@@ -53,7 +53,7 @@ class Index extends Component {
             gifHeight: h,
             images:saveBase64s,
             interval: 0.1,
-            numFrames: 10,
+            numFrames: saveBase64s.length,
             frameDuration: 1,
             fontWeight: 'normal',
             fontSize: '16px',
