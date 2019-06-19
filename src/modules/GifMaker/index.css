@@ -27,7 +27,7 @@
 
 @media only screen and (max-width: 768px){
     #img-maker-gif img{
-        /* max-height: 300px; */
+        max-height: 350px;
         width: 100%;
     }
     #img-maker-gif input{
