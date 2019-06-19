@@ -267,6 +267,7 @@ class Index extends Component {
                                             onClick={(e) => {
                                                 e.target.select();
                                                 document.execCommand("copy");
+                                                e.target.blur()
                                                 toast('連結已複製', {
                                                     position: "bottom-center",
                                                     autoClose: 2000,
