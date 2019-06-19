@@ -5,7 +5,7 @@
 
 還有順手增加一些原版本沒有的強化功能😎
 
-![我復活啦](https://i.imgur.com/HbKvwrq.png)
+![我復活啦](https://i.imgur.com/o5qrzxH.png)
 
 由於是基於JavaScript加上GitHub Pages的支持，除非GitHub終止服務，不然會一直永久存在
 
