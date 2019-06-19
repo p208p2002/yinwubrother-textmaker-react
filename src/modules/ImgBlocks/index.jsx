@@ -10,15 +10,24 @@ class View extends Component {
             loading: true,
             yinwubrotherImgs: [],
             yinwubrotherGifs: [],
-            selectImgPath: ''
+            selectImgPath: '',
+            showMaker:false
         }
         this.imgOnClick = this.imgOnClick.bind(this)
+        this.closeMaker = this.closeMaker.bind(this)
+    }
+
+    closeMaker(){
+        this.setState({
+            showMaker:false
+        })
     }
 
     imgOnClick(e, imgpath) {
-        window.scrollTo(0, 0);
-        console.log(imgpath)
+        // window.scrollTo(0, 0);
+        // console.log(imgpath)
         this.setState({
+            showMaker:true,
             selectImgPath: imgpath
         })
     }
@@ -60,25 +69,12 @@ class View extends Component {
     }
 
     render() {
-        let { yinwubrotherImgs, yinwubrotherGifs, selectImgPath } = this.state
+        let { yinwubrotherImgs, yinwubrotherGifs, selectImgPath, showMaker } = this.state
         var re = /\.gif$/i;
         var match = selectImgPath.match(re)
         let gifResource = match ? true : false
         return (
             <div id="img-block">
-                <div>
-                    {gifResource ?
-                        <GifMaker
-                            imgPath={selectImgPath}
-                            key={selectImgPath + '1'}
-                        />
-                        :
-                        <ImgMaker
-                            imgPath={selectImgPath}
-                            key={selectImgPath + '2'}
-                        />
-                    }
-                </div>
                 <h4 className="text-center">靜態圖集</h4>
                 <hr />
                 <div className="row row-width">
@@ -111,6 +107,29 @@ class View extends Component {
                             </div>
                         )
                     })}
+                </div>
+                <div
+                    className={showMaker?'float-window window-on':'float-window window-off'}
+                    key={JSON.stringify(this.state)}
+                >
+                <div className="popup">
+                    <button
+                        className="close-popup btn btn-sm btn-danger"
+                        onClick={this.closeMaker}>X</button>
+                    <div>
+                    {gifResource ?
+                        <GifMaker
+                            imgPath={selectImgPath}
+                            key={selectImgPath + '1'}
+                        />
+                        :
+                        <ImgMaker
+                            imgPath={selectImgPath}
+                            key={selectImgPath + '2'}
+                        />
+                    }
+                </div>
+                </div>
                 </div>
             </div>
         );
