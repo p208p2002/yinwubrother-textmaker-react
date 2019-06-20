@@ -53,7 +53,7 @@ class App extends React.Component {
       style
     })
 
-    toast.warning('遇到BUG?請至頁尾點選"問題回報"，將盡快處理😭😭', {
+    toast.warning('遇到BUG😭?請至頁尾點選"問題回報"', {
       position: "bottom-center",
       autoClose: 2500,
       hideProgressBar: true,
