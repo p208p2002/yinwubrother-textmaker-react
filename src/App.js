@@ -13,7 +13,7 @@ import {
   LineIcon,
 } from 'react-share';
 import { ToastContainer, toast } from 'react-toastify';
-// import AdSense from 'react-adsense';
+import AdSense from 'react-adsense';
 
 var SHARE_URL = 'https://p208p2002.github.io/yinwubrother-textmaker-react/'
 class App extends React.Component {
@@ -138,13 +138,9 @@ class App extends React.Component {
           <hr />
 
           <ImgBlocks />
-          <br />
-          {/* <AdSense.Google
-            client='ca-pub-3857728160074264'
-            slot='5604826184'
-            responsive="true"
-          /> */}
-          <br />
+
+          <br/>
+
           <DisqusBlock />
 
           <hr />
@@ -162,6 +158,14 @@ class App extends React.Component {
             {/* 圖片皆來自Google */}
         </div>
           <br />
+
+          <AdSense.Google
+            client='ca-pub-3857728160074264'
+            slot='5604826184'
+            responsive="true"
+            style={{ width: 250, height: 250, float: 'left' }}
+            format=''
+          />
 
         </div>
       </div>
