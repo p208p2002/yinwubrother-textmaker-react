@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://p208p2002.github.io/yinwubrother-textmaker-react/precache-manifest.5bec4ba659df0849901b93867ac63867.js"
+  "https://p208p2002.github.io/yinwubrother-textmaker-react/precache-manifest.42128327c0eadafac35d5e6e1f0ab8f4.js"
 );
 
 self.addEventListener('message', (event) => {
