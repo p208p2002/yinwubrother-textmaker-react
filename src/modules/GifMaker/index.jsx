@@ -310,11 +310,11 @@ class Index extends Component {
                                     type="text"
                                     value={this.state.textInput}
                                     onChange={this.handleChange}
-                                    onClick={(e) => {
-                                        this.setState({
-                                            upInput: true
-                                        })
-                                    }}
+                                    // onClick={(e) => {
+                                    //     this.setState({
+                                    //         upInput: true
+                                    //     })
+                                    // }}
                                     onBlur={this.onBlurInput}
                                     onKeyDown={this.inputKeyDown}
                                 />

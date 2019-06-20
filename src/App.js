@@ -53,7 +53,7 @@ class App extends React.Component {
       style
     })
 
-    toast.info('鸚鵡兄弟動起來啦~動圖功能上線🎉🎉', {
+    toast.warning('遇到BUG?請至頁尾點選"問題回報"，將盡快處理😭😭', {
       position: "bottom-center",
       autoClose: 2500,
       hideProgressBar: true,
@@ -155,6 +155,9 @@ class App extends React.Component {
             <button
               className={style === 'default' ? 'btn btn-sm btn-outline-secondary' : 'btn btn-sm btn-outline-light'}
               onClick={this.changeStyle}>切換主題:{style.charAt(0).toUpperCase() + style.slice(1)}</button>
+            <a
+              className="btn btn-sm btn-outline-success"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfMJTQVEP_PvW31Kfg_U35tGKg_G0g2RapnRmuDWbnWWn5CnQ/viewform?usp=pp_url">問題回報</a>
             <br />
             {/* 圖片皆來自Google */}
         </div>
