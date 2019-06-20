@@ -37,6 +37,7 @@ class Index extends Component {
         this.makeGif = this.makeGif.bind(this)
         this.onBlurInput = this.onBlurInput.bind(this)
         this.inputKeyDown = this.inputKeyDown.bind(this)
+        this.onClickInput = this.onClickInput.bind(this)
     }
 
     inputKeyDown(e) {
@@ -54,12 +55,25 @@ class Index extends Component {
     }
 
 
-    onBlurInput() {
-        setTimeout(() => {
+    onClickInput() {
+        let { upInputEnable } = this.state
+        if (upInputEnable === true) {
             this.setState({
-                upInput: false
+                upInput: true
             })
-        }, 0)
+        }
+    }
+
+
+    onBlurInput() {
+        let { upInputEnable } = this.state
+        if (upInputEnable === true) {
+            setTimeout(() => {
+                this.setState({
+                    upInput: false
+                })
+            }, 0)
+        }
     }
 
     makeGif(w, h) {
@@ -156,6 +170,15 @@ class Index extends Component {
         self.setState({
             base64s
         })
+
+        //
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+        if (isAndroid) {
+            this.setState({
+                upInputEnable: true
+            })
+        }
     }
 
     upLoadImg() {
@@ -310,11 +333,7 @@ class Index extends Component {
                                     type="text"
                                     value={this.state.textInput}
                                     onChange={this.handleChange}
-                                    // onClick={(e) => {
-                                    //     this.setState({
-                                    //         upInput: true
-                                    //     })
-                                    // }}
+                                    onClick={this.onClickInput}
                                     onBlur={this.onBlurInput}
                                     onKeyDown={this.inputKeyDown}
                                 />

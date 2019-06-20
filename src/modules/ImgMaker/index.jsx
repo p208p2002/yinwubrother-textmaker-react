@@ -25,7 +25,8 @@ class Index extends Component {
             uploadImgLink: '',
             uploadStateText: '上傳並取得圖片連結',
             // windowHeightOri: window.innerHeight,
-            upInput: false
+            upInput: false,
+            upInputEnable: false
         }
         this.setFontSize = this.setFontSize.bind(this)
         // this.onImgLoad = this.onImgLoad.bind(this);
@@ -34,6 +35,17 @@ class Index extends Component {
         this.upLoadImg = this.upLoadImg.bind(this)
         this.onBlurInput = this.onBlurInput.bind(this)
         this.inputKeyDown = this.inputKeyDown.bind(this)
+        this.onClickInput = this.onClickInput.bind(this)
+    }
+
+    componentDidMount() {
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+        if (isAndroid) {
+            this.setState({
+                upInputEnable: true
+            })
+        }
     }
 
     inputKeyDown(e) {
@@ -50,13 +62,25 @@ class Index extends Component {
         }
     }
 
+    onClickInput() {
+        let { upInputEnable } = this.state
+        if (upInputEnable === true) {
+            this.setState({
+                upInput: true
+            })
+        }
+    }
+
 
     onBlurInput() {
-        setTimeout(() => {
-            this.setState({
-                upInput: false
-            })
-        }, 0)
+        let { upInputEnable } = this.state
+        if (upInputEnable === true) {
+            setTimeout(() => {
+                this.setState({
+                    upInput: false
+                })
+            }, 0)
+        }
     }
 
     upLoadImg() {
@@ -200,11 +224,7 @@ class Index extends Component {
                                     type="text"
                                     value={this.state.textInput}
                                     onChange={this.handleChange}
-                                    // onClick={(e) => {
-                                    //     this.setState({
-                                    //         upInput: true
-                                    //     })
-                                    // }}
+                                    onClick={this.onClickInput}
                                     onBlur={this.onBlurInput}
                                     onKeyDown={this.inputKeyDown}
                                 />
