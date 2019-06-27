@@ -53,14 +53,14 @@ class App extends React.Component {
       style
     })
 
-    toast.warning('遇到BUG😭?請至頁尾點選"問題回報"', {
-      position: "bottom-center",
-      autoClose: 2500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-    });
+    // toast.warning('遇到BUG😭?請至頁尾點選"問題回報"', {
+    //   position: "bottom-center",
+    //   autoClose: 2500,
+    //   hideProgressBar: true,
+    //   closeOnClick: true,
+    //   pauseOnHover: false,
+    //   draggable: true,
+    // });
 
     // setTimeout(()=>{
     //   toast.warning('目前已知手機鍵盤可能會遮蓋到編輯介面，頭痛處理中...', {
@@ -141,7 +141,7 @@ class App extends React.Component {
 
           <br/>
 
-          <DisqusBlock />
+          {/* <DisqusBlock /> */}
 
           <hr />
           <div className="text-center footer">
@@ -159,13 +159,13 @@ class App extends React.Component {
         </div>
           <br />
 
-          <AdSense.Google
+          {/* <AdSense.Google
             client='ca-pub-3857728160074264'
             slot='5604826184'
             responsive="true"
             style={{ width: 250, height: 250, float: 'left' }}
             format=''
-          />
+          /> */}
 
         </div>
       </div>
