@@ -13,7 +13,7 @@ import {
   LineIcon,
 } from 'react-share';
 import { ToastContainer, toast } from 'react-toastify';
-import AdSense from 'react-adsense';
+// import AdSense from 'react-adsense';
 
 var SHARE_URL = 'https://p208p2002.github.io/yinwubrother-textmaker-react/'
 class App extends React.Component {
@@ -85,7 +85,7 @@ class App extends React.Component {
     this.setState({
       style
     })
-    toast('設定已儲存', {
+    toast('主題已設定:'+style.charAt(0).toUpperCase() + style.slice(1), {
       position: "bottom-center",
       autoClose: 1000,
       hideProgressBar: true,
@@ -150,7 +150,7 @@ class App extends React.Component {
               href="https://github.com/p208p2002/yinwubrother-textmaker-react">GitHub</a>
             <button
               className={style === 'default' ? 'btn btn-sm btn-outline-secondary' : 'btn btn-sm btn-outline-light'}
-              onClick={this.changeStyle}>切換主題:{style.charAt(0).toUpperCase() + style.slice(1)}</button>
+              onClick={this.changeStyle}>切換主題</button>
             <a
               className="btn btn-sm btn-outline-success"
               href="https://docs.google.com/forms/d/e/1FAIpQLSfMJTQVEP_PvW31Kfg_U35tGKg_G0g2RapnRmuDWbnWWn5CnQ/viewform?usp=pp_url">問題回報</a>
