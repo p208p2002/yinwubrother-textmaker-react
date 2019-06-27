@@ -33,6 +33,7 @@
 #img-block .window-on {
     visibility: visible;
     opacity: 1;
+    z-index: 1;
 }
 
 #img-block .window-off {
