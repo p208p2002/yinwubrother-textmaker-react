@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ImgBlocks from './modules/ImgBlocks/index.jsx'
-import DisqusBlock from './modules/Disqus/index.jsx'
+import Commento from './modules/Commento/index.jsx'
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -141,7 +141,7 @@ class App extends React.Component {
 
           <br/>
 
-          {/* <DisqusBlock /> */}
+          <Commento />
 
           <hr />
           <div className="text-center footer">
