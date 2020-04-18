@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4a1923502e5dd156032b10700626d13c",
+    "revision": "e582cce5889083060069729c57b383ad",
     "url": "/yinwubrother-textmaker-react/index.html"
   },
   {
-    "revision": "c8f67dbf07df67be091d",
+    "revision": "bbcf87f1c6b70c6554b5",
     "url": "/yinwubrother-textmaker-react/static/css/2.5dbdccff.chunk.css"
   },
   {
-    "revision": "222d8c9dcffde44f0f54",
+    "revision": "2103246f2a09c24f3291",
     "url": "/yinwubrother-textmaker-react/static/css/main.ef7e919e.chunk.css"
   },
   {
-    "revision": "c8f67dbf07df67be091d",
-    "url": "/yinwubrother-textmaker-react/static/js/2.5856cc3f.chunk.js"
+    "revision": "bbcf87f1c6b70c6554b5",
+    "url": "/yinwubrother-textmaker-react/static/js/2.dcb16ee9.chunk.js"
   },
   {
-    "revision": "222d8c9dcffde44f0f54",
-    "url": "/yinwubrother-textmaker-react/static/js/main.8313b63c.chunk.js"
+    "revision": "2103246f2a09c24f3291",
+    "url": "/yinwubrother-textmaker-react/static/js/main.76c1f1ee.chunk.js"
   },
   {
     "revision": "1f1dbde0789c6276066b",
