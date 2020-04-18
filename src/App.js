@@ -47,31 +47,11 @@ class App extends React.Component {
   componentDidMount() {
     let style = this.getCookie('theme')
     if(style === ''){
-      style = 'default'
+      style = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)?'classic':'default'
     }
     this.setState({
       style
     })
-
-    // toast.warning('遇到BUG😭?請至頁尾點選"問題回報"', {
-    //   position: "bottom-center",
-    //   autoClose: 2500,
-    //   hideProgressBar: true,
-    //   closeOnClick: true,
-    //   pauseOnHover: false,
-    //   draggable: true,
-    // });
-
-    // setTimeout(()=>{
-    //   toast.warning('目前已知手機鍵盤可能會遮蓋到編輯介面，頭痛處理中...', {
-    //     position: "bottom-center",
-    //     autoClose: 2500,
-    //     hideProgressBar: true,
-    //     closeOnClick: true,
-    //     pauseOnHover: false,
-    //     draggable: true,
-    // });
-    // },1500)
   }
 
   changeStyle() {
