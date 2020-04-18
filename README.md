@@ -1,4 +1,4 @@
-# 鸚鵡兄弟文字圖產生器
+# 鸚鵡兄弟文字圖產生器 ![Build and Deploy](https://github.com/p208p2002/yinwubrother-textmaker-react/workflows/Build%20and%20Deploy/badge.svg)
 [鸚鵡兄弟文字圖產生器](https://p208p2002.github.io/yinwubrother-textmaker-react/)
 
 原作者PHP版本網站掛掉，所以我重新用ReactJS開發並掛在GitHub Pages底下供大家使用
