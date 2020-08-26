@@ -26,7 +26,8 @@ class Index extends Component {
             uploadStateText: '上傳並取得圖片連結',
             base64s: [], //gif frames with base64 format
             saveBase64s: [], //gif frames with base64 format and text,
-            upInput:false
+            upInput: false,
+            addTextBorder: false
         }
         this.setFontSize = this.setFontSize.bind(this)
         // this.onImgLoad = this.onImgLoad.bind(this);
@@ -225,8 +226,13 @@ class Index extends Component {
         if (text === '')
             return
 
+        let bias = 0
+        if (text.length <= 4) {
+            bias = 10
+        }
+
         let selectImgH = 0, selectImgW = 0
-        let { base64s } = this.state
+        let { base64s, addTextBorder } = this.state
         let self = this
         let saveBase64s = []
         let promiseCount = 0
@@ -254,13 +260,19 @@ class Index extends Component {
 
                     var text_w, text_h, text_l, text_fs
                     text_l = addtext.length; //輸入長度
-                    text_fs = w / (text_l + 2);  //字體大小修正
+                    text_fs = w / (text_l + 3) - bias;  //字體大小修正
                     text_h = h * 0.95;		//離圖片底部的高度
 
                     ctx.font = text_fs + "px  Microsoft YaHei";//即時修正字體大小
                     var lenn
                     lenn = ctx.measureText(addtext); //取得字的寬度
                     text_w = (w - lenn.width) / 2; //0908寬度算法
+
+                    if (addTextBorder) {
+                        ctx.strokeStyle = "#000";
+                        ctx.lineWidth = text_fs / 20;
+                        ctx.strokeText(addtext, text_w, text_h);
+                    }
 
                     //
                     ctx.fillText(addtext, text_w, text_h); //選擇位置 && 上字
@@ -301,6 +313,13 @@ class Index extends Component {
         this.setState({ textInput: event.target.value });
     }
 
+    addTextBorderOnClick = () => {
+        let { addTextBorder } = this.state
+        this.setState({
+            addTextBorder: !addTextBorder
+        })
+    }
+
     render() {
         let { imgPath = '', textInput, upLoadAble,
             showImgUploadLink, uploadImgLink, uploadStateText, upInput } = this.state
@@ -327,9 +346,9 @@ class Index extends Component {
                         />
                         <br />
                         <div className="row justify-content-center">
-                            <div className="col-10 col-md-4">
+                            <div className="col-10 col-md-6">
                                 <input
-                                    className={upInput === true ? "form-control input-up" : "form-control"}
+                                    className={upInput === true ? "form-control input-up mb-0" : "form-control mb-0"}
                                     type="text"
                                     value={this.state.textInput}
                                     onChange={this.handleChange}
@@ -337,6 +356,14 @@ class Index extends Component {
                                     onBlur={this.onBlurInput}
                                     onKeyDown={this.inputKeyDown}
                                 />
+                                <label className="ml-1 mb-0">
+                                    <input
+                                        onClick={this.addTextBorderOnClick}
+                                        type="checkbox"
+                                        checked={this.state.addTextBorder}
+                                    />
+                                &nbsp;加黑底
+                                </label>
                             </div>
                         </div>
                         <div className="action-buttons">

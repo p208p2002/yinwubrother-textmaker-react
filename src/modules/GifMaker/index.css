@@ -1,6 +1,7 @@
 #img-maker-gif img{
-    max-height: 400px;
-    width: auto;
+    max-height: 370px;
+    /* width: auto; */
+    max-width: 100%;
 }
 
 #img-maker-gif button{
@@ -28,7 +29,7 @@
 @media only screen and (max-width: 768px){
     #img-maker-gif img{
         max-height: 350px;
-        width: 100%;
+        max-width: 100%;
     }
     #img-maker-gif input{
         margin-top: 8px;

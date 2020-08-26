@@ -130,7 +130,7 @@ class Index extends Component {
 
         let bias = 0
         if (text.length <= 4) {
-            bias = 25
+            bias = 10
         }
 
         let selectImgH = 0, selectImgW = 0
