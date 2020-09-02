@@ -358,7 +358,7 @@ class Index extends Component {
                                 />
                                 <label className="ml-1 mb-0">
                                     <input
-                                        onClick={this.addTextBorderOnClick}
+                                        onChange={this.addTextBorderOnClick}
                                         type="checkbox"
                                         checked={this.state.addTextBorder}
                                     />

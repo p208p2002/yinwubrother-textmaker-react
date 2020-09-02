@@ -197,8 +197,8 @@ class Index extends Component {
     }
 
     handleChange(event) {
-        let { windowHeightOri } = this.state
-        console.log(window.innerHeight, windowHeightOri, windowHeightOri - window.innerHeight)
+        // let { windowHeightOri } = this.state
+        // console.log(window.innerHeight, windowHeightOri, windowHeightOri - window.innerHeight)
         this.setState({ textInput: event.target.value });
     }
 
@@ -243,7 +243,7 @@ class Index extends Component {
                                 />
                                 <label className="ml-1 mb-0">
                                     <input 
-                                        onClick={this.addTextBorderOnClick} 
+                                        onChange={this.addTextBorderOnClick} 
                                         type="checkbox"
                                         checked={this.state.addTextBorder}
                                     />
